@@ -33,6 +33,7 @@ body {
 
 a {
   text-decoration: none;
+  color: #567355;
 }
 
 #sidebar {
@@ -53,7 +54,12 @@ a {
   margin-left: 250px;
 }
 
-h1,h2,h3,h4, #topmenu a {
+h1,h2,h3,h4 {
+  font: 20px Knockout;
+  margin: 15px 0 10px 0;
+}
+
+#topmenu a {
   font: 20px Knockout;
 }
 
@@ -70,6 +76,7 @@ h1,h2,h3,h4, #topmenu a {
   height: 44px;
   position: absolute;
   top: 20px;
+  left: -9999px;
   z-index: 9;
 }
 
@@ -119,7 +126,7 @@ h1,h2,h3,h4, #topmenu a {
 }
 
 h1 {
-  font-size: 48px;
+  font-size: 40px;
   color: #000;
 }
 

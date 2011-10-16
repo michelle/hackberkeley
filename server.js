@@ -12,24 +12,28 @@ app.set('views', __dirname + '/views');
 
 
 app.get('/', function(req, res){
-  res.render('index');
+  res.render('home', {page: 'home'});
+});
+
+app.get('/home', function(req, res){
+  res.render('home', {page: 'home'});
 });
 
 app.get('/sponsors', function(req, res){
-  res.render('sponsors');
+  res.render('sponsors', {page: 'sponsors'});
 });
 
 
 app.get('/projects', function(req, res){
-  res.render('projects');
+  res.render('projects', {page: 'projects'});
 });
 
 app.get('/people', function(req, res){
-  res.render('people');
+  res.render('people', {page: 'people'});
 });
 
 app.get('/media', function(req, res){
-  res.render('media');
+  res.render('media', {page: 'media'});
 });
 
 app.listen(80);

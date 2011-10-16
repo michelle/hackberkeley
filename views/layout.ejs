@@ -19,10 +19,15 @@ $(document).ready(function(){
       "left" : $(this).position().left + 250,
       "width" : $(this).width() + 30
     });
-    $(this).stop().animate({"color": '#fafbe7'});
+    $(this).stop().delay(150).animate({"color": '#fafbe7'});
   });
-     
-
+  setTimeout(function(){
+    var curLink = $('#topmenu a[href="/<%-page%>"]');
+    $("#bg").css({
+      "left" : curLink.position().left + 250,
+      "width" : curLink.width() + 30
+    });
+  }, 100);
 });
 
 </script>
@@ -51,11 +56,11 @@ $(document).ready(function(){
   </div>  
   <div id="bg"></div>
   <div id="topmenu">
-    <a class="selected">Home</a>
-    <a>Projects</a>
-    <a>People</a>
-    <a>Media</a>
-    <a>Sponsors</a>
+    <a href="/home"<% if(page === 'home') { %> class="selected"<% } %>>Home</a>
+    <a href="/projects"<% if(page === 'projects') { %> class="selected"<% } %>>Projects</a>
+    <a href="/people"<% if(page === 'people') { %> class="selected"<% } %>>People</a>
+    <a href="/media"<% if(page === 'media') { %> class="selected"<% } %>>Media</a>
+    <a href="/sponsors"<% if(page === 'sponsors') { %> class="selected"<% } %>>Sponsors</a>
   </div>
   
   <%-body%>
