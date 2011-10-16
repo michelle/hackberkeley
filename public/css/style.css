@@ -127,11 +127,12 @@ h1 {
   padding: 25px;
   font-size: 25px;
   color: #000;
+  text-shadow: 1px 1px 1px #d8db9b;
 }
 
 .box {
   padding: 20px;
-  background-color: #e5e8b1;
+  background-color: #fafaf2;
   border: 1px solid #d8db9b;
 }
-}
+
