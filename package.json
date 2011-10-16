@@ -1,0 +1,18 @@
+{
+  "author": "",
+  "name": "hack.b",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ericz/hack.b.git"
+  },
+  "main": "app.js",
+  "engines": {
+    "node": "~v0.4.10"
+  },
+  "dependencies":{
+    "express":"",
+    "ejs":""
+  },
+  "devDependencies": {}
+}
