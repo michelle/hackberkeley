@@ -56,7 +56,7 @@ a {
 
 h1,h2,h3,h4 {
   font: 20px Knockout;
-  margin: 15px 0 10px 0;
+  margin: 15px 0 0 0;
 }
 
 #topmenu a {
@@ -126,16 +126,22 @@ h1,h2,h3,h4 {
 }
 
 h1 {
-  font-size: 40px;
-  color: #000;
+  font-size: 35px;
+  color: #35361d;
   text-shadow: 1px 1px 1px #d8db9b;
+  border: 1px solid #d8db9b;
+  border-bottom: 0px;
+  text-align: center;
+  padding: 5px;
+  border-radius: 15px 15px 0 0;
 }
 
 #content {
-  padding: 25px;
-  font-size: 20px;
+  padding: 20px;
+  font-size: 18px;
   line-height: 30px;
   color: #000;
+  margin-right: 40px;
 }
 
 .box {
