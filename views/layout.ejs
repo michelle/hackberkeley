@@ -13,20 +13,22 @@
 
 $(document).ready(function(){
 
-  $("#topmenu a").mouseenter(function() {  
-    $("#topmenu a").stop().animate({"color": '#567355'});
-    $("#bg").stop().animate({
-      "left" : $(this).position().left + 250,
-      "width" : $(this).width() + 30
-    });
-    $(this).stop().delay(150).animate({"color": '#fafbe7'});
-  });
   setTimeout(function(){
     var curLink = $('#topmenu a[href="/<%-page%>"]');
     $("#bg").css({
       "left" : curLink.position().left + 250,
       "width" : curLink.width() + 30
     });
+    
+    $("#topmenu a").mouseenter(function() {
+    $("#topmenu a").stop().animate({"color": '#567355'});
+    $("#bg").stop().animate({
+        "left" : $(this).position().left + 250,
+        "width" : $(this).width() + 30
+      });
+      $(this).stop().delay(150).animate({"color": '#fafbe7'});
+    });
+    
   }, 100);
 });
 
