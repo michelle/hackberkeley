@@ -132,4 +132,6 @@ h1 {
 .box {
   padding: 20px;
   background-color: #e5e8b1;
+  border: 1px solid #d8db9b;
+}
 }
