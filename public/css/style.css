@@ -122,3 +122,14 @@ h1 {
   font-size: 48px;
   color: #000;
 }
+
+#content {
+  padding: 25px;
+  font-size: 25px;
+  color: #000;
+}
+
+.box {
+  padding: 20px;
+  background-color: #e5e8b1;
+}
