@@ -33,7 +33,7 @@ body {
 
 a {
   text-decoration: none;
-  color: #567355;
+  color: #4e6e74;
 }
 
 #sidebar {
@@ -41,7 +41,7 @@ a {
   padding: 0 10px;
   font-family: Courier;
   font-size: 20px;
-  background-color: #567355;
+  background-color: #4e6e74;
   color: #fafbe7;
   height: 100%;
   position: fixed;
@@ -50,7 +50,7 @@ a {
 
 #main {
   width: 750px;
-  color: #567355;
+  color: #4e6e74;
   margin-left: 250px;
 }
 
@@ -71,7 +71,7 @@ h1,h2,h3,h4 {
 }
 
 #bg {
-  background-color: #567355;
+  background-color: #4e6e74;
   width: 107px;
   height: 44px;
   position: absolute;
@@ -109,7 +109,7 @@ h1,h2,h3,h4 {
 
 #righttitle {
   font: 70px 'Knockout', arial;
-  color: #567355;
+  color: #4e6e74;
 }
 
 #topmenu a {
@@ -141,12 +141,13 @@ h1 {
   font-size: 18px;
   line-height: 30px;
   color: #000;
-  margin-right: 40px;
+  margin: 0 40px 0 10px;
 }
 
 .box {
   padding: 20px;
   background-color: #fafaf2;
   border: 1px solid #d8db9b;
+  margin-bottom: 20px;
 }
 
