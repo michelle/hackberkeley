@@ -117,3 +117,14 @@ h1,h2,h3,h4, #topmenu a {
 #topmenu a.selected {
   color: #fafbe7;
 }
+
+#content {
+  padding: 25px;
+  font-size: 25px;
+  color: #000;
+}
+
+.box {
+  padding: 20px;
+  background-color: #e5e8b1;
+}
