@@ -36,6 +36,6 @@ app.get('/media', function(req, res){
   res.render('media', {page: 'media'});
 });
 
-app.listen(80);
+app.listen(8080);
 
 
