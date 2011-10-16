@@ -4,6 +4,13 @@ var express = require('express');
 var fs = require('fs');
 var app =  express.createServer();
 
+var mongo = require('mongoskin');
+var people;
+
+mongo.db('heroku:hackers@staff.mongohq.com:10065/app1491090').collection('people').find().sort({'order':1}).toArray(function(err, items){
+    people = items;
+})
+
 // Initialize main server
 app.use(express.bodyParser());
 
@@ -31,7 +38,7 @@ app.get('/projects', function(req, res){
 });
 
 app.get('/people', function(req, res){
-  res.render('people', {page: 'people'});
+  res.render('people', {page: 'people', people: people});
 });
 
 app.get('/media', function(req, res){

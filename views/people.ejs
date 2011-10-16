@@ -1,15 +1,17 @@
 <div id="content">
   <div class="minheight" id="people">
-  <h2>Erica Chang</h2>
+  <% for (var i in people) { %>
+  
+  <h2>#<%= people[i].name %></h2>
   <div class="box">
-    <img src="/images/ez.jpg" class="icon">
+    <img src="<%= people[i].image %>" class="icon">
     <span class="bios">
-      <span class="awesomebio">Position:</span> "Doesn't Give a Fuck";<br>
-      <span class="awesomebio">Bio:</span> "I enjoy things.";<br>
-      <span class="awesomebio">Likes to code:</span> "Haro.";<br>
-      <span class="awesomebio">Quote:</span> "yo dude";<br>
-      <span class="awesomebio">Year:</span> 2013;<br>
+      <% for (var key in people[i].bio) { %>
+        <span class="awesomebio"><%= key %></span> "<%= people[i].bio[key] %>";<br>
+      <% } %>
     </span>
   </div>
+  <% } %>
+  
   </div>
 </div>
