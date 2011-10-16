@@ -1,0 +1,119 @@
+html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td{margin:0;padding:0;}table{border-collapse:collapse;border-spacing:0;}fieldset,img{border:0;}address,caption,cite,code,dfn,em,th,var,optgroup{font-style:inherit;font-weight:inherit;}del,ins{text-decoration:none;}li{list-style:none;}caption,th{text-align:left;}q:before,q:after{content:'';}abbr,acronym{border:0;font-variant:normal;}sup{vertical-align:baseline;}sub{vertical-align:baseline;}legend{color:#000;}input,button,textarea,select,optgroup,option{font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;}input,button,textarea,select{font-size:100%;}
+a {outline: none;} /* Gets rid of Firefox's dotted borders */
+a img {border: none;} /* Gets rid of IE's blue borders */
+
+
+@font-face {
+    font-family: 'Knockout';
+    src: url('../images/knockout-htf29-juniorliteweight-webfont.eot');
+    src: url('../images/knockout-htf29-juniorliteweight-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../images/knockout-htf29-juniorliteweight-webfont.woff') format('woff'),
+         url('../images/knockout-htf29-juniorliteweight-webfont.ttf') format('truetype'),
+         url('../images/knockout-htf29-juniorliteweight-webfont.svg#KnockoutHTF29JuniorLiteweigRg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+html, body {
+  background-color: #fafbe7;
+}
+
+body {
+  min-height: 100%;
+  height: 100%;
+}
+
+#wrap {
+  margin: 0 auto;
+  position: relative;
+  width: 950px;
+}
+
+a {
+  text-decoration: none;
+}
+
+#sidebar {
+  width: 230px;
+  padding: 0 10px;
+  font-family: Courier;
+  font-size: 20px;
+  background-color: #567355;
+  color: #fafbe7;
+  height: 100%;
+  position: fixed;
+  top: 0;
+}
+
+#main {
+  font-family: Helvetica, Arial;
+  width: 750px;
+  color: #567355;
+  margin-left: 250px;
+}
+
+h1,h2,h3,h4, #topmenu a {
+  font: 20px Knockout;
+}
+
+#topmenu {
+  position: absolute;
+  top: 20px;
+  z-index: 10;
+  height: 100px;
+}
+
+#bg {
+  background-color: #567355;
+  width: 107px;
+  height: 44px;
+  position: absolute;
+  top: 20px;
+  z-index: 9;
+}
+
+.namecontainer {
+  position: relative;
+  height: 150px;
+}
+
+.name {
+  position: absolute;
+  bottom: 0;
+}
+
+#otherfont {
+  font-family: courier;
+}
+
+#sidebar p {
+  margin: 25px 0;
+  letter-spacing: -0.08em;
+}
+
+#lefttitle {
+  font: 70px Courier;
+  color: #fafbe7;
+  text-align: right;
+  letter-spacing: -0.08em;
+  right: 0;
+}
+
+#righttitle {
+  font: 70px 'Knockout', arial;
+  color: #567355;
+}
+
+#topmenu a {
+  text-transform: uppercase;
+  font-size: 40px;
+  display: block;
+  float: left;
+  padding: 0 15px;
+  cursor: pointer;
+}
+
+#topmenu a.selected {
+  color: #fafbe7;
+}

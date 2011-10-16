@@ -1,0 +1,64 @@
+<!DOCTYPE HTML> 
+<html lang="en"> 
+<head> 
+<title></title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+<meta http-equiv="Content-Language" content="en-us"> 
+
+<link href="css/style.css" rel="stylesheet" type="text/css"> 
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/index.js"></script>  
+<script type="text/javascript" src="js/jquery.color.js"></script>  
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+  $("#topmenu a").mouseenter(function() {  
+    $("#topmenu a").stop().animate({"color": '#567355'});
+    $("#bg").stop().animate({
+      "left" : $(this).position().left + 250,
+      "width" : $(this).width() + 30
+    });
+    $(this).stop().animate({"color": '#fafbe7'});
+  });
+     
+
+});
+
+</script>
+</head> 
+ 
+<body> 
+<div id="wrap">
+<div id="sidebar">
+  <div class="namecontainer">
+    <div id="lefttitle" class="name">
+      hack
+    </div>
+  </div>
+  <p align="right">
+    asdfkljasdkfjks afklsaj fklsadfj sladkfj skaldfjsaldk faskldfj aslkdfj asl;df
+  </p>
+  <br>
+  <div align="right">
+  <iframe src="https://www.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=300&amp;wkst=1&amp;bgcolor=%23fafbe7&amp;ctz=America%2FLos_Angeles" style=" border-width:0 " width="200" height="300" frameborder="0" scrolling="no"></iframe></div>
+</div>
+<div id="main">
+  <div class="namecontainer">
+    <div id="righttitle" class="name">
+      <span id="otherfont">@</span>BERKELEY
+    </div>
+  </div>  
+  <div id="bg"></div>
+  <div id="topmenu">
+    <a class="selected">Home</a>
+    <a>Projects</a>
+    <a>People</a>
+    <a>Media</a>
+    <a>Sponsors</a>
+  </div>
+</div>
+</div>
+
+</body> 
+</html> 
