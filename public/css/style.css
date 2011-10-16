@@ -129,7 +129,7 @@ h1,h2,h3,h4 {
   color: #fafbe7;
 }
 
-h1 {
+h1, h2 {
   font-size: 35px;
   color: #35361d;
   text-shadow: 1px 1px 1px #d8db9b;
@@ -155,9 +155,29 @@ h1 {
   margin-bottom: 20px;
 }
 
+#projects .box {
+  font-size: 15px;
+  min-height: 100px;
+}
+
 .image {
   border: 1px solid #d8db9b;
   border-radius: 20px;
   width: 660px;
+}
+
+.proj {
+  border: 1px solid #d8db9b;
+  float: left;
+  margin: 10px 30px 10px 10px;
+  width: 100px;
+}
+
+.byline {
+  font-size: 16px;
+  text-transform: uppercase;
+  margin: 0 -7px 0 -7px;
+  color: #b3b67f;
+  text-shadow: 0 0 0;
 }
 
