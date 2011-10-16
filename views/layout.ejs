@@ -27,6 +27,16 @@ $(window).load(function(){
     "left" : curLink.position().left + 250,
     "width" : curLink.width() + 30
   });
+  
+  $(".proj").hover(function() {
+    $(this).animate( {
+      "opacity" : 0.6
+    });
+  }, function() {
+    $(this).animate( {
+      "opacity" : 1.0
+    });
+  });
 });
 
 </script>
