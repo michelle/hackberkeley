@@ -17,6 +17,7 @@ a img {border: none;} /* Gets rid of IE's blue borders */
 
 html, body {
   background-color: #fafbe7;
+  font-family: Helvetica, Arial;
 }
 
 body {
@@ -47,7 +48,6 @@ a {
 }
 
 #main {
-  font-family: Helvetica, Arial;
   width: 750px;
   color: #567355;
   margin-left: 250px;
@@ -116,4 +116,9 @@ h1,h2,h3,h4, #topmenu a {
 
 #topmenu a.selected {
   color: #fafbe7;
+}
+
+h1 {
+  font-size: 48px;
+  color: #000;
 }
