@@ -164,9 +164,16 @@ h1, h2 {
   margin-bottom: 20px;
 }
 
-#projects .box {
+.minheight .box {
+  min-height: 120px;
+}
+
+#projects {
   font-size: 15px;
-  min-height: 100px;
+}
+
+#people {
+  font-family: courier;
 }
 
 .image {
@@ -175,7 +182,7 @@ h1, h2 {
   width: 660px;
 }
 
-.proj {
+.icon {
   border: 1px solid #d8db9b;
   float: left;
   margin: 10px 30px 10px 10px;
@@ -192,4 +199,10 @@ h1, h2 {
 
 .clear {
   clear: both;
+}
+
+.awesomebio {
+  font-weight: bold;
+  color: #4e6e74;
+  text-transform: lowercase;
 }
