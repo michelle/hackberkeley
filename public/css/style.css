@@ -52,6 +52,15 @@ p {
   top: 0;
 }
 
+#footer {
+  position: absolute;
+  bottom: 0px;
+  height: 60px;
+  margin: 0 auto;
+  width: 750px;
+  background-color: rgba(0,0,0,0.5);
+}
+
 #main {
   width: 750px;
   color: #4e6e74;
@@ -162,7 +171,7 @@ h1, h2 {
 
 .image {
   border: 1px solid #d8db9b;
-  border-radius: 20px;
+  border-radius: 17px;
   width: 660px;
 }
 
@@ -181,3 +190,6 @@ h1, h2 {
   text-shadow: 0 0 0;
 }
 
+.clear {
+  clear: both;
+}
