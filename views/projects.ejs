@@ -2,9 +2,9 @@
 <div class="minheight" id="projects">
   
   <% for (var i in projects) { %>
-  <h2><%=projects[i].title%><p class="byline">created by <%=projects[i].author%>, <%=projects[i].date%></p></h2> 
+  <h2><a href="<%-projects[i].url%>"><%=projects[i].title%></a><p class="byline">created by <%=projects[i].author%>, <%=projects[i].date%></p></h2> 
   <div class="box">
-    <img src="<%=projects[i].image%>" class="icon">
+    <a href="<%-projects[i].url%>"><img src="/images/projects/<%=projects[i].image%>" class="icon"></a>
     <%=projects[i].description%>
   </div>  
   <% } %>

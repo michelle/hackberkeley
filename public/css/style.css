@@ -152,7 +152,7 @@ h1, h2 {
 #content {
   padding: 20px;
   font-size: 18px;
-  line-height: 30px;
+  line-height: 25px;
   color: #000;
   margin: 0 40px 0 10px;
 }
@@ -185,7 +185,7 @@ h1, h2 {
 .icon {
   border: 1px solid #d8db9b;
   float: left;
-  margin: 10px 30px 10px 10px;
+  margin: 5px 15px 0px 0px;
   width: 100px;
 }
 

@@ -2,9 +2,9 @@
   <div class="minheight" id="people">
   <% for (var i in people) { %>
   
-  <h2>#<%= people[i].name %></h2>
+  <h2><%= people[i].name %></h2>
   <div class="box">
-    <img src="<%= people[i].image %>" class="icon">
+    <img src="/images/people/<%= people[i].image %>" class="icon">
     <span class="bios">
       <% for (var key in people[i].bio) { %>
         <span class="awesomebio"><%= key %></span>: "<%= people[i].bio[key] %>";<br>
