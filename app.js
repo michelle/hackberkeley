@@ -6,10 +6,20 @@ var app =  express.createServer();
 
 var mongo = require('mongoskin');
 var people;
+var projects;
 
-mongo.db('heroku:hackers@staff.mongohq.com:10065/app1491090').collection('people').find().sort({'order':1}).toArray(function(err, items){
-    people = items;
-})
+
+function refreshCache () {
+  mongo.db('heroku:hackers@staff.mongohq.com:10065/app1491090').collection('people').find().sort({'order':1}).toArray(function(err, items){
+      people = items;
+  });
+  mongo.db('heroku:hackers@staff.mongohq.com:10065/app1491090').collection('projects').find().sort({'order':1}).toArray(function(err, items){
+      projects = items;
+  });
+
+  setTimeout(refreshCache, 60000);
+}
+refreshCache();
 
 // Initialize main server
 app.use(express.bodyParser());
@@ -34,7 +44,7 @@ app.get('/sponsors', function(req, res){
 
 
 app.get('/projects', function(req, res){
-  res.render('projects', {page: 'projects'});
+  res.render('projects', {page: 'projects', projects: projects});
 });
 
 app.get('/people', function(req, res){

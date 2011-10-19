@@ -1,9 +1,13 @@
 <div id="content">
 <div class="minheight" id="projects">
-  <h2>filler<p class="byline">created by lol, somemonth 2011</p></h2> 
+  
+  <% for (var i in projects) { %>
+  <h2><%=projects[i].title%><p class="byline">created by <%=projects[i].author%>, <%=projects[i].date%></p></h2> 
   <div class="box">
-    <img src="/images/rb.jpg" class="icon">
-    This was something shitty that was made in the vicinity of less shitty things. It does some random stuff that doesn't really work but at least it looks sorta cool. It was developed on something that didn't really run and is hosted on someplace that isn't exactly active.
-  </div>
-  </div>
+    <img src="<%=projects[i].image%>" class="icon">
+    <%=projects[i].description%>
+  </div>  
+  <% } %>
+
+</div>
 </div>
