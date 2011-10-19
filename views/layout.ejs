@@ -51,7 +51,13 @@ $(window).load(function(){
     </div>
   </div>
   <p align="right">
-    Build, break, build
+    <strong>Build, break, build</strong>
+  </p>
+  <br>
+  <p align="right">
+    Sign up for the mailing list
+    <input type="text" name="email" id="email" size="18" placeholder="Your email">
+    <input type="submit" value="Submit" id="mailinglist">
   </p>
   <br>
   <div align="center">
@@ -62,9 +68,10 @@ $(window).load(function(){
     <div id="righttitle" class="name">
       <span id="otherfont">@</span>BERKELEY
     </div>
-  </div>  
+  </div>
   <div id="bg"></div>
   <div id="topmenu">
+  
     <a href="/home"<% if(page === 'home') { %> class="selected"<% } %>>Home</a>
     <a href="/projects"<% if(page === 'projects') { %> class="selected"<% } %>>Projects</a>
     <a href="/people"<% if(page === 'people') { %> class="selected"<% } %>>People</a>

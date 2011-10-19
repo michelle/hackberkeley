@@ -206,3 +206,23 @@ h1, h2 {
   color: #4e6e74;
   text-transform: lowercase;
 }
+
+#emailhome {
+  width: 280px;
+  text-align: center;
+}
+
+form {
+  margin: 0;
+  padding: 0;
+  display: inline;
+}
+
+#mailinglist {
+  margin-top: 10px;
+}
+
+#mailinglist, #mailinglisthome {
+  padding-left: 10px;
+  padding-right: 10px;
+}
