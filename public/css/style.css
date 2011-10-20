@@ -36,6 +36,10 @@ a {
   color: #4e6e74;
 }
 
+h2 {
+  color: #4e6e74;
+}
+
 p {
   margin: 8px 0;
 }
@@ -138,9 +142,12 @@ h1,h2,h3,h4 {
   color: #fafbe7;
 }
 
+h1 {
+  color: #35361d;
+}
+
 h1, h2 {
   font-size: 35px;
-  color: #35361d;
   text-shadow: 1px 1px 1px #d8db9b;
   border: 1px solid #d8db9b;
   border-bottom: 0px;

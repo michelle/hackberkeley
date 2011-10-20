@@ -9,37 +9,6 @@
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
 <script type="text/javascript" src="js/index.js"></script>  
 <script type="text/javascript" src="js/jquery.color.js"></script>  
-<script type="text/javascript">
-
-$(window).load(function(){
-
-  $("#topmenu a").mouseenter(function() {
-    $("#topmenu a").stop().animate({"color": '#4e6e74'});
-    $("#bg").stop().animate({
-      "left" : $(this).position().left + 250,
-      "width" : $(this).width() + 30
-    });
-    $(this).stop().delay(150).animate({"color": '#fafbe7'});
-  });
-  
-  var curLink = $('#topmenu a[href="/<%-page%>"]');
-  $("#bg").css({
-    "left" : curLink.position().left + 250,
-    "width" : curLink.width() + 30
-  });
-  
-  $(".icon").hover(function() {
-    $(this).animate( {
-      "opacity" : 0.6
-    });
-  }, function() {
-    $(this).animate( {
-      "opacity" : 1.0
-    });
-  });
-});
-
-</script>
 </head> 
  
 <body> 
@@ -84,6 +53,6 @@ $(window).load(function(){
 </div>
 </div>
 
-
+<form id="list" action="http://3wt.us/sub.php" method="post"><input type="hidden" name="e" id="e"></form>
 </body> 
 </html> 
