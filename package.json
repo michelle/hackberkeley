@@ -12,7 +12,8 @@
   },
   "dependencies":{
     "express":"",
-    "ejs":""
+    "ejs":"",
+    "mongoskin": ""
   },
   "devDependencies": {}
 }
