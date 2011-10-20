@@ -6,9 +6,19 @@
 <meta http-equiv="Content-Language" content="en-us"> 
 
 <link href="css/style.css" rel="stylesheet" type="text/css"> 
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
-<script type="text/javascript" src="js/index.js"></script>  
-<script type="text/javascript" src="js/jquery.color.js"></script>  
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script> 
+<script type="text/javascript" src="js/jquery.color.js"></script>
+<script type="text/javascript" src="js/index.js"></script> 
+
+<script>
+$(window).load( function() {
+  var curLink = $('#topmenu a[href="/<%-page%>"]');
+  $("#bg").css({
+    "left" : curLink.position().left + 250,
+    "width" : curLink.width() + 30
+  });
+});
+</script>
 </head> 
  
 <body> 
@@ -16,14 +26,13 @@
 <div id="sidebar">
   <div class="namecontainer">
     <div id="lefttitle" class="name">
-      hack
+      <a href="/home" id="tit">hack</a>
     </div>
   </div>
   <p align="right">
     <strong>Build, break, build</strong>
   </p>
-  <br>
-  <p align="right">
+  <p class="smallside">
     Sign up for the mailing list
     <input type="text" name="email" id="email" size="18" placeholder="Your email">
     <input type="submit" value="Submit" id="mailinglist">

@@ -1,5 +1,6 @@
 $(window).load(function(){
 
+
   $("#topmenu a").mouseenter(function() {
     $("#topmenu a").stop().animate({"color": '#4e6e74'});
     $("#bg").stop().animate({
@@ -9,12 +10,12 @@ $(window).load(function(){
     $(this).stop().delay(150).animate({"color": '#fafbe7'});
   });
   
-  var curLink = $('#topmenu a[href="/<%-page%>"]');
-  $("#bg").css({
-    "left" : curLink.position().left + 250,
-    "width" : curLink.width() + 30
+  $("#tit").hover(function() {
+      $(this).stop().animate({"color": "#fff"});
+    }, function() {
+      $(this).stop().animate({"color" : "#fafbe7"});
   });
-  
+    
   $(".icon").hover(function() {
     $(this).animate( {
       "opacity" : 0.6

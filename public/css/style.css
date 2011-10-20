@@ -71,7 +71,7 @@ p {
   margin-left: 250px;
 }
 
-h1,h2,h3,h4 {
+h2,h3,h4 {
   font: 20px Knockout;
   margin: 15px 0 0 0;
 }
@@ -144,9 +144,19 @@ h1,h2,h3,h4 {
 
 h1 {
   color: #35361d;
+  text-align: left;
+  margin-bottom: 30px;
+  font: 35px Knockout;
 }
 
-h1, h2 {
+.head {
+  background-color: #4e6e74;
+  padding: 10px 30px 10px 30px;
+  margin-left: -30px;
+  color: #fafaf2;
+}
+
+h2 {
   font-size: 35px;
   text-shadow: 1px 1px 1px #d8db9b;
   border: 1px solid #d8db9b;
@@ -157,7 +167,7 @@ h1, h2 {
 }
 
 #content {
-  padding: 20px;
+  padding: 0 20px 20px 20px;
   font-size: 18px;
   line-height: 25px;
   color: #000;
@@ -219,6 +229,10 @@ h1, h2 {
   text-align: center;
 }
 
+#emailhome:hover, #email:hover, #mailinglist:hover, #mailinglisthome:hover {
+  background-color: #fafbe7;
+}
+
 form {
   margin: 0;
   padding: 0;
@@ -232,4 +246,30 @@ form {
 #mailinglist, #mailinglisthome {
   padding-left: 10px;
   padding-right: 10px;
+  border: 1px solid #d8db9b;
+  background-color: #fff;
+  text-transform: uppercase;
+}
+
+.notice {
+  background-color: #4e6e74;
+  color: #fafbe7;
+  text-transform: uppercase;
+  font-size: 14px;
+  text-align: center;
+  margin: 20px 5px;
+  padding: 10px;
+}
+
+.smallside {
+  text-align: right;
+  font-size: 15px;
+}
+
+#tit {
+  color: #fafbe7;
+}
+
+#tit:hover {
+  cursor: pointer;
 }
