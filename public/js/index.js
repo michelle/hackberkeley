@@ -1,30 +1,7 @@
 $(window).load(function(){
 
 
-  $("#topmenu a").mouseenter(function() {
-    $("#topmenu a").stop().animate({"color": '#4e6e74'});
-    $("#bg").stop().animate({
-      "left" : $(this).position().left + 250,
-      "width" : $(this).width() + 30
-    });
-    $(this).stop().delay(150).animate({"color": '#fafbe7'});
-  });
-  
-  $("#tit").hover(function() {
-      $(this).stop().animate({"color": "#fff"});
-    }, function() {
-      $(this).stop().animate({"color" : "#fafbe7"});
-  });
-    
-  $(".icon").hover(function() {
-    $(this).animate( {
-      "opacity" : 0.6
-    });
-  }, function() {
-    $(this).animate( {
-      "opacity" : 1.0
-    });
-  });
+
   
   $("#email, #emailhome").keypress(function(e){
     if(e.which === 13) {

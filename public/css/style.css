@@ -4,6 +4,81 @@ a img {border: none;} /* Gets rid of IE's blue borders */
 
 @font-face {font-family: 'Code-Pro-Demo';src: url('webfonts/15C3D7_0.eot');src: url('webfonts/15C3D7_0.eot?#iefix') format('embedded-opentype'),url('webfonts/15C3D7_0.woff') format('woff'),url('webfonts/15C3D7_0.ttf') format('truetype'),url('webfonts/15C3D7_0.svg#wf') format('svg');}
 
-#title {
-  
+/* More semicolons*/
+
+html, body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+  -webkit-transition:color 250ms ease-in;  
+  -moz-transition:color 250ms ease-in;  
+  -o-transition:color 250ms ease-in;  
+  transition:color 250ms ease-in;  
+}
+
+a:hover {
+  color: #00bdec;
+}
+
+h1, h2, h3, h4 {
+  font-weight: normal;
+  font-family: Code-Pro-Demo; 
+}
+
+#header, #gloss-content, .wrap {
+  width: 920px;
+  margin: 0 auto; 
+}
+
+#header {
+  position: relative;
+  height: 80px;
+}
+
+#logo {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin-top: 60px;
+}
+
+#menu {
+  margin-top: 80px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+#menu a {
+  display: block;
+  padding: 5px 15px 0 15px;
+  float: left;
+}
+
+#gloss {
+  width: 100%;
+  height: 427px;
+  background: url('/images/WhiteGuy.jpg') center center repeat-x;
+  background-size: cover;
+  margin-top: 10px;
+  box-shadow: inset 0px 15px 15px -15px #000;
+}
+
+#gloss-content {
+  height: 427px;
+  position: relative;
+}
+
+#label {
+  bottom: 25px;
+  right: 0;
+  position: absolute;
+  font-family: Code-Pro-Demo;
+  font-size: 48px;
+  color: #00bdec;
+  padding: 0 25px 25px 25px;
+  background-color: rgba(0,0,0,0.7);
 }
