@@ -9,59 +9,10 @@
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script> 
 <script type="text/javascript" src="js/jquery.color.js"></script>
 <script type="text/javascript" src="js/index.js"></script> 
+<script type="text/javascript" src="js/cal.js"></script> 
 
-<script>
-$(window).load( function() {
-  var curLink = $('#topmenu a[href="/<%-page%>"]');
-  $("#bg").css({
-    "left" : curLink.position().left + 250,
-    "width" : curLink.width() + 30
-  });
-});
-</script>
-</head> 
- 
-<body> 
-<div id="wrap">
-<div id="sidebar">
-  <div class="namecontainer">
-    <div id="lefttitle" class="name">
-      <a href="/home" id="tit">hack</a>
-    </div>
-  </div>
-  <p align="right">
-    <strong>Build, break, build</strong>
-  </p>
-  <p class="smallside">
-    Sign up for the mailing list
-    <input type="text" name="email" id="email" size="18" placeholder="Your email">
-    <input type="submit" value="Submit" id="mailinglist">
-  </p>
-  <br>
-  <div align="center">
-  <iframe src="https://www.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=300&amp;wkst=1&amp;bgcolor=%23fafbe7&amp;ctz=America%2FLos_Angeles" style=" border-width:0 " width="200" height="300" frameborder="0" scrolling="no"></iframe></div>
-  </div>
-<div id="main">
-  <div class="namecontainer">
-    <div id="righttitle" class="name">
-      <span id="otherfont">@</span>BERKELEY
-    </div>
-  </div>
-  <div id="bg"></div>
-  <div id="topmenu">
-  
-    <a href="/home"<% if(page === 'home') { %> class="selected"<% } %>>Home</a>
-    <a href="/projects"<% if(page === 'projects') { %> class="selected"<% } %>>Projects</a>
-    <a href="/people"<% if(page === 'people') { %> class="selected"<% } %>>People</a>
-    <!--<a href="/media"<% if(page === 'media') { %> class="selected"<% } %>>Media</a>
-    <a href="/sponsors"<% if(page === 'sponsors') { %> class="selected"<% } %>>Sponsors</a>-->
-  </div>
-  
-  <%-body%>
-  
-</div>
-</div>
+</head>
+<body>
 
-<form id="list" action="http://3wt.us/sub.php" method="post"><input type="hidden" name="e" id="e"></form>
 </body> 
 </html> 
