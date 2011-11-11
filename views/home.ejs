@@ -1,9 +1,20 @@
-<div id="gloss">
-  <div id="gloss-content">
-    <div id="label">Build, break, build</div>
-  </div>
-</div>
-
 <div class="wrap">
-  <h1>Events</h1>
+  <h1 id="label">
+    <span class="labelmsg">BUILD, BREAK, BUILD.</span>
+    <span class="labelquote"> - awesome hackers</span>
+  </h1>
+  <div class="box">
+  <p>You're not here to do problem sets. You're here because you want to build.</p>
+  <p>Hackers @ Berkeley is here to help you, whether you want to learn practical coding skills, find partners to work with, or promote your project. We're an organization that fosters a culture of creation at Berkeley.</p>
+  <p><strong>And we want you to hack with us.</strong></p>
+  </div>
+  <h1>Upcoming Events</h1>
+  <div id="homeevents">
+  <% for(var i in events.new) { if(i == 3) {break;} var event = events.new[i]; %>
+    <div class="event" style="background-image: url('<%-event.pic_big%>');">
+      <div class="eventtitle"><%=event.name%></div>
+      <div class="eventdate"><%=event.date%></div>
+    </div>
+  <% } %>
+  </div>
 </div>

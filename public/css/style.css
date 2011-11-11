@@ -2,25 +2,23 @@ html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,pre,code,form,fields
 a {outline: none;} /* Gets rid of Firefox's dotted borders */
 a img {border: none;} /* Gets rid of IE's blue borders */
 
-@font-face {font-family: 'Code-Pro-Demo';src: url('webfonts/15C3D7_0.eot');src: url('webfonts/15C3D7_0.eot?#iefix') format('embedded-opentype'),url('webfonts/15C3D7_0.woff') format('woff'),url('webfonts/15C3D7_0.ttf') format('truetype'),url('webfonts/15C3D7_0.svg#wf') format('svg');}
+@font-face {font-family: 'Code-Pro-Demo';src: url('webfonts/16CC75_0.eot');src: url('webfonts/16CC75_0.eot?#iefix') format('embedded-opentype'),url('webfonts/16CC75_0.woff') format('woff'),url('webfonts/16CC75_0.ttf') format('truetype'),url('webfonts/16CC75_0.svg#wf') format('svg');}
+@font-face {font-family: 'Code-Pro-Light-Demo';src: url('webfonts/16CC75_1.eot');src: url('webfonts/16CC75_1.eot?#iefix') format('embedded-opentype'),url('webfonts/16CC75_1.woff') format('woff'),url('webfonts/16CC75_1.ttf') format('truetype'),url('webfonts/16CC75_1.svg#wf') format('svg');}
 
 /* More semicolons*/
 
 html, body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', sans-serif;  
+  background-image: url('/images/fancy_deboss.png');
 }
 
 a {
   text-decoration: none;
   color: #000;
-  -webkit-transition:color 250ms ease-in;  
-  -moz-transition:color 250ms ease-in;  
-  -o-transition:color 250ms ease-in;  
-  transition:color 250ms ease-in;  
 }
 
-a:hover {
-  color: #00bdec;
+.blue, a:hover, #menu a:hover {
+  color: #a5d500;
 }
 
 h1, h2, h3, h4 {
@@ -28,34 +26,78 @@ h1, h2, h3, h4 {
   font-family: Code-Pro-Demo; 
 }
 
+h1 {
+  font-size: 32px;
+}
+
 #header, #gloss-content, .wrap {
-  width: 920px;
+  width: 820px;
   margin: 0 auto; 
 }
 
 #header {
-  position: relative;
-  height: 80px;
+  height: 90px;
+  
+  text-shadow: 0px 1px 1px #000;
 }
 
 #logo {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  margin-top: 60px;
+  text-align: center;
+  font-family: Code-Pro-Demo;
+  font-size: 60px;
 }
 
+.light {
+  font-family: Code-Pro-Light-Demo;
+}
+
+
 #menu {
-  margin-top: 80px;
-  position: absolute;
-  bottom: 0;
-  right: 0;
+  font-family: Code-Pro-Demo;
+  font-size: 20px;
+  height: 40px;
+  text-align: center;
+}
+
+#gloss #menu {
+  height: 60px;
+  
+  /* webkit example */
+  background-image: -webkit-gradient(
+    linear, left 35%, left bottom, from(rgba(0, 0, 0, 0.7)),
+    to(rgba(0, 0, 0, 0.0))
+  );
+
+  /* mozilla example - FF3.6+ */
+  background-image: -moz-linear-gradient(
+    35% 
+    90deg,
+    rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7) 35%
+  );
+
 }
 
 #menu a {
-  display: block;
-  padding: 5px 15px 0 15px;
-  float: left;
+  display: inline-block;
+  color: #fff;
+  padding: 0px 12px 0 12px;
+  -webkit-transition:color 150ms ease-in;  
+  -moz-transition:color 150s ease-in;  
+  -o-transition:color 150ms ease-in;  
+  transition:color 150ms ease-in;
+}
+
+.box {
+  margin: -10px 10px -10px -10px;
+  padding: 10px;
+  background-color: #fff;
+  -moz-box-shadow: 1px 1px 3px #aaa;
+  -webkit-box-shadow: 1px 1px 3px #aaa;
+  box-shadow: 1px 1px 3px #aaa;
+}
+
+p {
+  margin: 8px 0;
 }
 
 #gloss {
@@ -63,22 +105,75 @@ h1, h2, h3, h4 {
   height: 427px;
   background: url('/images/WhiteGuy.jpg') center center repeat-x;
   background-size: cover;
-  margin-top: 10px;
   box-shadow: inset 0px 15px 15px -15px #000;
 }
 
-#gloss-content {
-  height: 427px;
-  position: relative;
+.left {
+  float: left;
 }
 
-#label {
-  bottom: 25px;
-  right: 0;
-  position: absolute;
+.right {
+  float: right;
+}
+
+
+.labelquote {
+  font-family: Code-Pro-Light-Demo;
+  font-size: 24px;
+  color: #666;
+}
+
+.labelmsg {
   font-family: Code-Pro-Demo;
-  font-size: 48px;
-  color: #00bdec;
-  padding: 0 25px 25px 25px;
-  background-color: rgba(0,0,0,0.7);
+  font-size: 32px;
+}
+
+.codepro {
+  font-family: Code-Pro-Demo;
+}
+
+#homeevents {
+  margin: -10px;
+}
+
+.event {
+  float: left;
+  width: 250px;
+  opacity: 0.85;
+  height: 250px;
+  padding: 10px;
+  cursor: pointer;
+  position: relative;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  background-size: contain;
+  box-shadow: 1px 1px 3px #aaa;
+  transition:opacity 150ms ease-in;
+  -moz-box-shadow: 1px 1px 3px #aaa;
+  -o-transition:opacity 150ms ease-in; 
+  -moz-transition:opacity 150s ease-in;  
+  -webkit-box-shadow: 1px 1px 3px #aaa;
+  background: #fff center center no-repeat;
+  -webkit-transition:opacity 150ms ease-in;
+}
+
+.event:hover {
+  opacity: 1;
+}
+
+.eventtitle {
+  position: absolute;
+  width: 250px;
+  bottom: 0;
+  left: 0;
+  padding: 2px 10px 6px 10px;
+  text-overflow: ellipsis;
+  whitespace: nowrap;
+  height: 16px;
+  overflow: hidden;
+  text-transform: uppercase;
+  color: #000;
+  font-size: 12px;
+  font-family: Code-Pro-Demo;
+  background-color: rgba(165,213,0,0.7);
 }

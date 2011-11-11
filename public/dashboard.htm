@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <style>
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+    <script src="jquery.tablesorter.min.js"></script>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  
+  <body>
+    <div id="container">
+      <h1>Leaderboard</h1>
+      <table id="leaderboard">
+	<thead>
+	  <th>Name</th>
+	  <th>Score</th>
+	</thead>
+	
+	<tbody>
+	  <tr class="odd">
+	    <td>John Doe</td>
+	    <td>50</td>
+	  <tr>
+	  <tr>
+	    <td>Doe John</td>
+	    <td>40</td>
+	  <tr>
+	</tbody>
+      </table>
+
+    </div>
+    <script>
+      $(document).ready(function(){
+      $('table#leaderboard').tablesorter();
+      });
+    </script>
+  </body>
+</html>
