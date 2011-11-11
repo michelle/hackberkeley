@@ -10,6 +10,7 @@ a img {border: none;} /* Gets rid of IE's blue borders */
 html, body {
   font-family: 'Open Sans', sans-serif;  
   background-image: url('/images/fancy_deboss.png');
+  letter-spacing: .7px;
 }
 
 a {
@@ -46,7 +47,11 @@ h3 {
 
 #header, #gloss-content, .wrap {
   width: 820px;
-  margin: 0 auto; 
+  margin: 0 auto;
+}
+
+.wrap {
+  margin-bottom: 50px;
 }
 
 #header {
@@ -94,7 +99,7 @@ h3 {
 #menu a {
   display: inline-block;
   color: #fff;
-  padding: 0px 12px 10px 12px;
+  padding: 0px 28px 10px 28px;
 }
 
 .box {
