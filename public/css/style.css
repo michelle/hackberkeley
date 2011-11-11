@@ -34,6 +34,12 @@ h2 {
   font-size: 24px;
 }
 
+h3 {
+  font-size: 24px;
+   font-family: Code-Pro-Light-Demo;
+  margin: 10px 0;
+}
+
 #header, #gloss-content, .wrap {
   width: 820px;
   margin: 0 auto; 
@@ -100,8 +106,37 @@ h2 {
   box-shadow: 1px 1px 3px #aaa;
 }
 
+.eventbox {
+  background: #fff 710px center no-repeat;
+  border-left: 10px solid #a5d500;
+  padding-right: 125px;
+  margin-top: 20px;
+  height: 100px;
+  overflow: hidden;
+  whitespace: nowrap;
+  text-overflow: ellipsis;
+}
+
+.eventcomplete {
+  height: 50px;
+  color: #aaa;
+  background: #fff 720px center no-repeat;
+}
+
+.eventcomplete a {
+  color: #666;
+}
+
+.eventbox p {
+  font-size: 14px;
+}
+
 p {
   margin: 8px 0;
+}
+
+.small {
+  font-size: 12px;
 }
 
 #gloss {
@@ -205,4 +240,8 @@ p {
   position: absolute;
   bottom: 0;
   right: 0;
+}
+
+#bar {
+  background-color: #000;
 }

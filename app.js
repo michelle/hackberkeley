@@ -13,8 +13,39 @@ var people;
 var projects;
 var events;
 
-function sorter(a, b) {
+function asorter(a, b) {
   return a.start_time-b.start_time;
+}
+
+function dsorter(a, b) {
+  return b.start_time-a.start_time;
+}
+
+function formatDate(date) {
+  var d = date;
+  var hh = d.getHours();
+  var m = d.getMinutes();
+  var s = d.getSeconds();
+  var dd = "AM";
+  var h = hh;
+  if (h >= 12) {
+      h = hh-12;
+      dd = "PM";
+  }
+  if (h == 0) {
+      h = 12;
+  }
+  m = m<10?"0"+m:m;
+  
+  if(m == '00') {
+    return h + dd;
+  }
+  
+  s = s<10?"0"+s:s;
+
+
+  var pattern = new RegExp("0?"+hh+":"+m+":"+s);
+  return h+":"+m+dd;
 }
 
 function refreshCache () {
@@ -42,8 +73,11 @@ function refreshCache () {
         var event, date;
         for(var i in data) {
           event = data[i];
-          date = new Date(event.start_time * 1000);
+          date = new Date((event.start_time  - 8 * 60 * 60) * 1000);
           event.date = months[date.getMonth()] + " " + date.getDate();
+          event.time = formatDate(date);
+          event.description = event.description.split('\n').shift();
+          
           if(event.start_time > ts) {
             events.new.push(event);
           } else {
@@ -51,8 +85,8 @@ function refreshCache () {
           }
         }
         
-        events.new.sort(sorter);
-        events.old.sort(sorter);
+        events.new.sort(asorter);
+        events.old.sort(dsorter);
         
       } catch (e){console.log(e.message)}
     });

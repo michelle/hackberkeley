@@ -1,0 +1,23 @@
+<div class="wrap">
+  <h1>Event driven architecture</h1>
+  <div class="box">
+    <p>Hackers @ Berkeley holds frequent workshops, hackerspaces, and social events.</p>
+    <p>We're a community driven by sharing knowledge, building projects, and helping each other become better hackers. All workshops are run by volunteers. If you have something cool to share with the Hack community, email <a href="mailto:hack@ocf.berkeley.edu">hack@ocf.berkeley.edu</a> to set up an event.</p>
+    <p></p>
+  </div>
+  <h1>Upcoming</h1>
+  <% for(var i in events.new) { var event = events.new[i]; %> 
+    <div class="eventbox box" style="background-image: url('<%-event.pic_big%>');">      
+     <div class="small"><%=event.date%> / <%=event.time%> / <%=event.location%></div>
+     <strong><a href="http://www.facebook.com/event.php?eid=<%=event.eid%>"><%=event.name%></a></strong>
+      <p><%-event.description%></p>
+    </div>
+  <% } %>
+  <h1>Past events</h1>
+    <% for(var i in events.old) { var event = events.old[i]; %> 
+    <div class="eventcomplete box" style="background-image: url('<%-event.pic_big%>');">      
+     <div class="small"><%=event.date%> / <%=event.time%> / <%=event.location%></div>
+     <strong><a href="http://www.facebook.com/event.php?eid=<%=event.eid%>"><%=event.name%></a></strong>
+      </div>
+  <% } %>
+</div>
