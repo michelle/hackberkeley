@@ -8,12 +8,15 @@
   <p>Hackers @ Berkeley is here to help you, whether you want to learn practical coding skills, find partners to work with, or promote your project. We're an organization that fosters a culture of creation at Berkeley.</p>
   <p><strong>And we want you to hack with us.</strong></p>
   </div>
-  <h1>Upcoming Events</h1>
+  <div id="upcoming">
+    <h1>Upcoming Events</h1>
+    <% if(events.new.length > 3) { %><a href="/events"><h2 id="seemore">See all <%=events.new.length%> events</h2></a><% } %>
+  </div>
   <div id="homeevents">
-  <% for(var i in events.new) { if(i == 3) {break;} var event = events.new[i]; %>
-    <div class="event" style="background-image: url('<%-event.pic_big%>');">
-      <div class="eventtitle"><%=event.name%></div>
-      <div class="eventdate"><%=event.date%></div>
+  <% for(var i in events.new) { if(i == 6) {break;} var event = events.new[i]; %>
+    <div class="event">
+      <div class="eventimage" style="background-image: url('<%-event.pic_big%>');"></div> 
+      <div class="eventtitle"><%=event.date%> / <%=event.name%></div>
     </div>
   <% } %>
   </div>

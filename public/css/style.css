@@ -17,7 +17,7 @@ a {
   color: #000;
 }
 
-.blue, a:hover, #menu a:hover {
+.blue, a:hover, #menu a:hover, #menu a.selected {
   color: #a5d500;
 }
 
@@ -28,6 +28,10 @@ h1, h2, h3, h4 {
 
 h1 {
   font-size: 32px;
+}
+
+h2 {
+  font-size: 24px;
 }
 
 #header, #gloss-content, .wrap {
@@ -80,7 +84,7 @@ h1 {
 #menu a {
   display: inline-block;
   color: #fff;
-  padding: 0px 12px 0 12px;
+  padding: 0px 12px 10px 12px;
   -webkit-transition:color 150ms ease-in;  
   -moz-transition:color 150s ease-in;  
   -o-transition:color 150ms ease-in;  
@@ -88,7 +92,7 @@ h1 {
 }
 
 .box {
-  margin: -10px 10px -10px -10px;
+  margin: -10px 0px -10px -10px;
   padding: 10px;
   background-color: #fff;
   -moz-box-shadow: 1px 1px 3px #aaa;
@@ -137,27 +141,35 @@ p {
 }
 
 .event {
+  width: 270px;
+  height: 270px;
   float: left;
-  width: 250px;
-  opacity: 0.85;
-  height: 250px;
-  padding: 10px;
   cursor: pointer;
   position: relative;
   margin-right: 10px;
   margin-bottom: 10px;
-  background-size: contain;
   box-shadow: 1px 1px 3px #aaa;
-  transition:opacity 150ms ease-in;
   -moz-box-shadow: 1px 1px 3px #aaa;
-  -o-transition:opacity 150ms ease-in; 
-  -moz-transition:opacity 150s ease-in;  
   -webkit-box-shadow: 1px 1px 3px #aaa;
-  background: #fff center center no-repeat;
-  -webkit-transition:opacity 150ms ease-in;
 }
 
-.event:hover {
+.eventimage {
+  opacity: 0.7;
+  width: 270px;
+  height: 270px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-size: auto auto;
+  transition:opacity 150ms ease-in;
+  -o-transition:opacity 150ms ease-in; 
+  -moz-transition:opacity 150s ease-in;  
+  background: #fff center center no-repeat;
+  -webkit-transition:opacity 150ms ease-in;
+  z-index: 10;
+}
+
+.eventimage:hover {
   opacity: 1;
 }
 
@@ -176,4 +188,21 @@ p {
   font-size: 12px;
   font-family: Code-Pro-Demo;
   background-color: rgba(165,213,0,0.7);
+  z-index: 11;
+}
+
+.clear {
+  clear: both;
+}
+
+#upcoming {
+  position: relative;
+}
+
+#seemore {
+  font-family: Code-Pro-Light-Demo;
+  margin: 0;
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }

@@ -13,6 +13,10 @@ var people;
 var projects;
 var events;
 
+function sorter(a, b) {
+  return a.start_time-b.start_time;
+}
+
 function refreshCache () {
   mongo.db('heroku:hackers@staff.mongohq.com:10065/app1491090').collection('people').find().sort({'order':1}).toArray(function(err, items){
       people = items;
@@ -41,11 +45,14 @@ function refreshCache () {
           date = new Date(event.start_time * 1000);
           event.date = months[date.getMonth()] + " " + date.getDate();
           if(event.start_time > ts) {
-            events['new'].push(event);
+            events.new.push(event);
           } else {
-            events['old'].push(event);
+            events.old.push(event);
           }
         }
+        
+        events.new.sort(sorter);
+        events.old.sort(sorter);
         
       } catch (e){console.log(e.message)}
     });
@@ -77,8 +84,8 @@ app.get('/sponsors', function(req, res){
 });
 
 
-app.get('/projects', function(req, res){
-  res.render('projects', {page: 'projects', projects: projects});
+app.get('/events', function(req, res){
+  res.render('events', {page: 'events', events: events});
 });
 
 app.get('/people', function(req, res){
