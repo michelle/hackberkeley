@@ -15,6 +15,10 @@ html, body {
 a {
   text-decoration: none;
   color: #000;
+  -webkit-transition:color 150ms ease-in;  
+  -moz-transition:color 150s ease-in;  
+  -o-transition:color 150ms ease-in;  
+  transition:color 150ms ease-in;
 }
 
 .blue, a:hover, #menu a:hover, #menu a.selected {
@@ -91,10 +95,6 @@ h3 {
   display: inline-block;
   color: #fff;
   padding: 0px 12px 10px 12px;
-  -webkit-transition:color 150ms ease-in;  
-  -moz-transition:color 150s ease-in;  
-  -o-transition:color 150ms ease-in;  
-  transition:color 150ms ease-in;
 }
 
 .box {
