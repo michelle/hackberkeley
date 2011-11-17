@@ -11,6 +11,7 @@ html, body {
   font-family: 'Open Sans', sans-serif;  
   background-image: url('/images/fancy_deboss.png');
   letter-spacing: .7px;
+  height: 100%;
 }
 
 a {
@@ -24,6 +25,10 @@ a {
 
 .blue, a:hover, #menu a:hover, #menu a.selected {
   color: #a5d500;
+}
+
+.blue {
+  text-shadow: 0px 1px 0px #999;
 }
 
 h1, h2, h3 {
@@ -55,15 +60,17 @@ h3 {
 }
 
 #header {
-  height: 90px;
-  text-shadow: 0px 1px 1px #000;
+  height: 110px;
 }
 
 #logo {
   text-align: center;
   font-family: Code-Pro-Demo;
-  font-size: 60px;
+  font-size: 70px;
+  color: #000;
 }
+
+
 
 .light {
   font-family: Code-Pro-Light-Demo;
@@ -280,6 +287,11 @@ p {
   background-color: #000;
 }
 
+.clear {
+  clear: both;
+  height: 100px;
+}
+
 h4 {
   background-color: #000;
   text-align: center;
@@ -294,4 +306,46 @@ h4 {
 
 .sponsorsbox img {
   margin: 20px;
+}
+
+#logo:hover {
+  color: #000;
+}
+
+#footer {
+  bottom: 0px;
+  height: 40px;
+  background-color: #fff;
+  text-align: center;
+  font-size: 12px;
+  padding: 10px;
+  opacity: 0.6;
+  text-transform: uppercase;
+}
+
+#helpMeImStuck {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin-bottom: -60px;
+}
+
+.butt {
+  border-radius: 10px;
+  padding: 0 20px 5px 20px;
+  line-height: 30px;
+  background-color: rgba(165,213,0,0.7);
+  -webkit-transition:background-color 250ms ease-in;  
+  -moz-transition:background-color 250s ease-in;  
+  -o-transition:background-color 250ms ease-in;  
+  transition:background-color 250ms ease-in;
+  color: #000;
+  -moz-box-shadow: 1px 1px 3px #aaa;
+  -webkit-box-shadow: 1px 1px 3px #aaa;
+  box-shadow: 1px 1px 3px #aaa;
+}
+
+.butt:hover {
+  color: #000;
+  background-color: rgba(165,213,0,0.3);
 }

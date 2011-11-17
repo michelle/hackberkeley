@@ -10,7 +10,7 @@
   </div>
   <div id="upcoming">
     <h1>Upcoming Events</h1>
-    <% if(events.new.length > 3) { %><a href="/events"><h2 id="seemore">See all <%=events.new.length%> events</h2></a><% } %>
+    <% if(events.new.length > 3) { %><a href="/events"><h2 class="butt" id="seemore">See all <%=events.new.length%> events</h2></a><% } %>
   </div>
   <div id="homeevents">
   <% for(var i in events.new) { if(i == 6) {break;} var event = events.new[i]; %>
