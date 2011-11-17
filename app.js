@@ -58,9 +58,8 @@ function refreshCache () {
   
   https.get({
     host: 'graph.facebook.com',
-    path: '/SuperBreakfastCereal/albums?access_token=AAACEdEose0cBAHD5nRv7UH0D6u4xlDq266GYLO2nQaWKpNnHcatCg6nWpaghHZAzU4nvCoXNKTwKSGXfgD8fZCE9Trl6DdZCIYqk0rEZCwwucyTMXDrV'
+    path: '/SuperBreakfastCereal/albums?access_token=AAACEdEose0cBABljA7jkLSXI1ECc2xZAEvFnjbmPOKFwHEWPepADZCYEOwGejUDBdOMaj1ILOrQ1a8N4LqHT4aFXQQ1pIsqUCfBvKWZCtxo5hJVyait'
   }, function(res) {
-    
       var body = "";
       res.on('data', function(chunk) {
         body += chunk;
@@ -87,7 +86,6 @@ function refreshCache () {
     var body = "";
     res.on('data', function(chunk){
       body += chunk;
-      console.log(body);
     });
     res.on('end', function(){
       try {

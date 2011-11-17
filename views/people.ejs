@@ -1,12 +1,13 @@
 <div class="wrap">
   <h1>This is who we are</h1>
   <div class="box">
-    <p>As a community of hackers, we try our best to not have a rigid hierarchy. However, these are the people who get things done and keep things running.</p>
+    <p>As a community of hackers, we try our best to not have a rigid hierarchy. However, these are the people who get things done, keep things running, and keep the food trunk full.</p>
     <p></p>
   </div>
   <h1>2011-2012 Leadership Team</h1>
   <div id="peoplepersons">
-  <% for(var i in people) { var person = people[i]; %>
+  <% for(var i in people) { var person = people[i]; var hasurl = false;%>
+  <% if (person.bio.url != null) { hasurl = true; %><a href="<%=person.bio.url %>"><% } %>
   <div class="people">
     <div class="personimage" style="background-image: url('/images/people/<%= person.image %>');"></div> 
     <div class="persontitle"><%= person.name %></div>
@@ -17,6 +18,7 @@
     <% } %>
     </div>
   </div>
+  <% if (hasurl) { hasurl = false; %></a><% } %>
   <% } %>
   </div>
 </div>

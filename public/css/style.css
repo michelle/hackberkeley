@@ -111,7 +111,7 @@ h3 {
 }
 
 .eventbox {
-  background: #fff 710px center no-repeat;
+  background: #fff 650px center no-repeat;
   border-left: 10px solid #a5d500;
   padding-right: 125px;
   margin-bottom: 20px;
@@ -124,7 +124,7 @@ h3 {
 .eventcomplete {
   height: 50px;
   color: #aaa;
-  background: #fff 720px center no-repeat;
+  background: #fff 670px center no-repeat;
 }
 
 .eventcomplete a {
@@ -183,13 +183,13 @@ p {
   width: 270px;
   height: 270px;
   float: left;
-  cursor: pointer;
   position: relative;
   margin-right: 10px;
   margin-bottom: 10px;
   box-shadow: 1px 1px 3px #aaa;
   -moz-box-shadow: 1px 1px 3px #aaa;
   -webkit-box-shadow: 1px 1px 3px #aaa;
+  cursor: auto;
 }
 
 .personimage, .eventimage {
@@ -213,6 +213,10 @@ p {
   height: 200px;
   opacity: 1;
   background-size: 100%;
+}
+
+.people {
+  color: #000;
 }
 
 .personinfo {
@@ -286,4 +290,8 @@ h4 {
   line-height: 20px;
   font-weight: normal;
   font-family: Code-Pro-Demo; 
+}
+
+.sponsorsbox img {
+  margin: 20px;
 }
