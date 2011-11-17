@@ -57,12 +57,37 @@ function refreshCache () {
   });
   
   https.get({
+    host: 'graph.facebook.com',
+    path: '/SuperBreakfastCereal/albums?access_token=AAACEdEose0cBAHD5nRv7UH0D6u4xlDq266GYLO2nQaWKpNnHcatCg6nWpaghHZAzU4nvCoXNKTwKSGXfgD8fZCE9Trl6DdZCIYqk0rEZCwwucyTMXDrV'
+  }, function(res) {
+    
+      var body = "";
+      res.on('data', function(chunk) {
+        body += chunk;
+      });
+      res.on('end', function() {
+        try {
+          albums = {}
+          var album;
+          for (var i in data) {
+            album = data[i];
+            albums.push(album);
+          }
+        } catch (error) {
+          console.log(error.message);
+        }
+      });
+  });
+    
+  
+  https.get({
     host: 'api.facebook.com',
     path: '/method/events.get?uid=276905079008757&format=json&access_token=AAACDsVxgNQgBAIwkFjmFZAko2yF7iKDLsnGZCpLHY5ixs194Gf1hlVrMC7zWXIsxlZBiCRMZAB75kMAuZBG6aUomx7P46F9cZD'
-  }, function(res){
+  }, function(res) {
     var body = "";
     res.on('data', function(chunk){
       body += chunk;
+      console.log(body);
     });
     res.on('end', function(){
       try {
@@ -127,7 +152,7 @@ app.get('/people', function(req, res){
 });
 
 app.get('/media', function(req, res){
-  res.render('media', {page: 'media'});
+  res.render('media', {page: 'media', albums: albums});
 });
 
 app.listen(process.env.PORT || 8086);

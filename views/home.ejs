@@ -15,8 +15,8 @@
   <div id="homeevents">
   <% for(var i in events.new) { if(i == 6) {break;} var event = events.new[i]; %>
     <div class="event">
-      <div class="eventimage" style="background-image: url('<%-event.pic_big%>');"></div> 
-      <div class="eventtitle"><%=event.date%> / <%=event.name%></div>
+      <a href="http://www.facebook.com/event.php?eid=<%=event.eid%>"><div class="eventimage" style="background-image: url('<%-event.pic_big%>');"></div> 
+      <div class="eventtitle"><%=event.date%> / <%=event.name%></div></a>
     </div>
   <% } %>
   </div>
