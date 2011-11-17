@@ -1,0 +1,22 @@
+<div class="wrap">
+  <h1>This is who we are</h1>
+  <div class="box">
+    <p>As a community of hackers, we try our best to not have a rigid hierarchy. However, these are the people who get things done and keep things running.</p>
+    <p></p>
+  </div>
+  <h1>2011-2012 Leadership Team</h1>
+  <div id="peoplepersons">
+  <% for(var i in people) { var person = people[i]; %>
+  <div class="people">
+    <div class="personimage" style="background-image: url('/images/people/<%= person.image %>');"></div> 
+    <div class="persontitle"><%= person.name %></div>
+    <div class="personinfo">
+    <h4>Bio</h4>
+    <% for (var key in people[i].bio) { %>
+      <strong><%= key %></strong>: <%= person.bio[key] %><br>
+    <% } %>
+    </div>
+  </div>
+  <% } %>
+  </div>
+</div>

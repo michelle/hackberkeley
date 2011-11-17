@@ -7,7 +7,7 @@
   <h1>Albums</h1>
   <% for(var i in albums) { var album = albums[i]; %>
     <div class="eventimage" style="background-image: url('<%-album.cover_photo%>');"></div> 
-    <div class="eventtitle"><%=album.name%></div>
+    <div class="eventtitle"><%=album.name%> / <%=album.date%></div>
 
   <% } %>
 </div>
