@@ -1,0 +1,13 @@
+<div class="wrap">
+  <h1>This is what we do</h1>
+  <div class="box">
+    <p>We take great pride in being able to record every event photographically. Here's our collection.</p>
+    <p></p>
+  </div>
+  <h1>Albums</h1>
+  <% for(var i in albums) { var album = albums[i]; %>
+    <div class="eventimage" style="background-image: url('<%-album.cover_photo%>');"></div> 
+    <div class="eventtitle"><%=album.name%></div>
+
+  <% } %>
+</div>
