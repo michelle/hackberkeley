@@ -49,41 +49,40 @@ function formatDate(date) {
 }
 
 function getPhotos(manyalbums) {
-  console.log(manyalbums);
-  for (var i in manyalbums) {
-    var a = manyalbums[i];
-    console.log(a);
-    var aid = a['id'];
-    var apath = '/' + aid + '/photos?access_token=AAACEdEose0cBAEVzEJbYhwJrH7DTFxBZBo7bo6yp5WQyaKok9pgL2nZAqgIy4SGC5HOXvthuijGSnjmLkZBVq0r09cSZCt53tmyEC4nUKlgArLZCufZA2B';
-    https.get({
-      host: 'graph.facebook.com',
-      path: apath
-    }, function(res) {
-      console.log("hello2");
-      var body = "";
-      res.on('data', function(chunk) {
-        body += chunk;
-      });
-      res.on('end', function() {
-        try {
-          //console.log(album);
-          a['photos'] = [];
-          var data = JSON.parse(body);
-          var pics = data['data'];
-          console.log(pics);
-          a['icon'] = pics[0]['picture'];
-          for (var j in pics) {
-            var photo = {};
-            photo['source'] = pics[j]['source'];
-            a['photos'].push(photo);
+  for (var j in manyalbums) {
+    var inline_function = function(i) {
+      var a = manyalbums[i];
+      var aid = a['id'];
+      var apath = '/' + aid + '/photos?access_token=AAACEdEose0cBAEVzEJbYhwJrH7DTFxBZBo7bo6yp5WQyaKok9pgL2nZAqgIy4SGC5HOXvthuijGSnjmLkZBVq0r09cSZCt53tmyEC4nUKlgArLZCufZA2B';
+      https.get({
+        host: 'graph.facebook.com',
+        path: apath
+      }, function(res) {
+          var body = "";
+          res.on('data', function(chunk) {
+          body += chunk;
+        });
+        res.on('end', function() {
+          try {
+            a['photos'] = [];
+            var data = JSON.parse(body);
+            var pics = data['data'];
+            a['icon'] = pics[0]['picture'];
+            for (var j in pics) {
+              var photo = {};
+              photo['source'] = pics[j]['source'];
+              a['photos'].push(photo);
+            }
+            //console.log(currentalbum);
+          } catch (error) {
+            console.log(error.message);
           }
-          //console.log(currentalbum);
-        } catch (error) {
-          console.log(error.message);
-        }
-      }); 
-    });
+        }); 
+      });
+    }
+    inline_function(j);
   }
+  console.log(albums);
 }
 
 function refreshCache () {
@@ -120,7 +119,8 @@ function refreshCache () {
             
           }
           getPhotos(albums);
-          selectedalbum = albums[4];
+          selectedalbum = albums[2];
+          
           
         } catch (error) {
           console.log(error.message);
@@ -169,6 +169,7 @@ function refreshCache () {
   setTimeout(refreshCache, 60000);
 }
 refreshCache();
+
 
 // Initialize main server
 app.use(express.bodyParser());

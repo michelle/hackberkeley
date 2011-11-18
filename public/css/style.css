@@ -222,9 +222,7 @@ p {
   -webkit-transition:opacity 150ms ease-in;
 }
 
-.sponsor:hover {
-  opacity: 1;
-}
+
 
 .albumimage, .personimage, .eventimage {
   opacity: 0.7;
@@ -253,6 +251,10 @@ p {
   height: 200px;
   opacity: 1;
   background-size: 100%;
+}
+
+.albumimage:hover, .sponsor:hover {
+  opacity: 1;
 }
 
 .people {
