@@ -7,7 +7,7 @@
   <h1>2011-2012 Leadership Team</h1>
   <div id="peoplepersons">
   <% for(var i in people) { var person = people[i]; var hasurl = false;%>
-  <% if (person.bio.url != null) { hasurl = true; %><a href="<%=person.bio.url %>"><% } %>
+  <% if (person.url != null) { hasurl = true; %><a href="<%=person.url %>"><% } %>
   <div class="people">
     <div class="personimage" style="background-image: url('/images/people/<%= person.image %>');"></div> 
     <div class="persontitle"><%= person.name %></div>

@@ -120,9 +120,9 @@ h3 {
 .eventbox {
   background: #fff 650px center no-repeat;
   border-left: 10px solid #a5d500;
-  padding-right: 125px;
+  padding-right: 195px;
   margin-bottom: 20px;
-  height: 100px;
+  min-height: 100px;
   overflow: hidden;
   whitespace: nowrap;
   text-overflow: ellipsis;
@@ -132,6 +132,7 @@ h3 {
   height: 50px;
   color: #aaa;
   background: #fff 670px center no-repeat;
+  padding-right: 185px;
 }
 
 .eventcomplete a {
@@ -182,11 +183,11 @@ p {
   font-family: Code-Pro-Demo;
 }
 
-#peoplepersons, #homeevents {
+.sponsors, #peoplepersons, #homeevents {
   margin: -10px;
 }
 
-.people, .event {
+.sponsor, .people, .event {
   width: 270px;
   height: 270px;
   float: left;
@@ -197,6 +198,22 @@ p {
   -moz-box-shadow: 1px 1px 3px #aaa;
   -webkit-box-shadow: 1px 1px 3px #aaa;
   cursor: auto;
+}
+
+.sponsor {
+  width: 270px;
+  height: 100px;
+  background: #fff center center no-repeat;
+  opacity: 0.6;
+  cursor: auto;
+  transition:opacity 150ms ease-in;
+  -o-transition:opacity 150ms ease-in; 
+  -moz-transition:opacity 150s ease-in; 
+  -webkit-transition:opacity 150ms ease-in;
+}
+
+.sponsor:hover {
+  opacity: 1;
 }
 
 .personimage, .eventimage {
