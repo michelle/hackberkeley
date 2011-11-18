@@ -12,9 +12,9 @@
     <div class="personimage" style="background-image: url('/images/people/<%= person.image %>');"></div> 
     <div class="persontitle"><%= person.name %></div>
     <div class="personinfo">
-    <h4>Bio</h4>
+    <h4>Contact</h4>
     <% for (var key in people[i].bio) { %>
-      <strong><%= key %></strong>: <%= person.bio[key] %><br>
+      <h5><%= key %></h5><%= person.bio[key] %><br>
     <% } %>
     </div>
   </div>
