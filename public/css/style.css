@@ -2,8 +2,8 @@ html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,pre,code,form,fields
 a {outline: none;} /* Gets rid of Firefox's dotted borders */
 a img {border: none;} /* Gets rid of IE's blue borders */
 
-@font-face {font-family: 'Code-Pro-Demo';src: url('webfonts/16CC75_0.eot');src: url('webfonts/16CC75_0.eot?#iefix') format('embedded-opentype'),url('webfonts/16CC75_0.woff') format('woff'),url('webfonts/16CC75_0.ttf') format('truetype'),url('webfonts/16CC75_0.svg#wf') format('svg');}
-@font-face {font-family: 'Code-Pro-Light-Demo';src: url('webfonts/16CC75_1.eot');src: url('webfonts/16CC75_1.eot?#iefix') format('embedded-opentype'),url('webfonts/16CC75_1.woff') format('woff'),url('webfonts/16CC75_1.ttf') format('truetype'),url('webfonts/16CC75_1.svg#wf') format('svg');}
+@font-face {font-family: 'Code-Pro-Demo';src: url('/css/webfonts/16CC75_0.eot');src: url('/css/webfonts/16CC75_0.eot?#iefix') format('embedded-opentype'),url('/css/webfonts/16CC75_0.woff') format('woff'),url('/css/webfonts/16CC75_0.ttf') format('truetype'),url('/css/webfonts/16CC75_0.svg#wf') format('svg');}
+@font-face {font-family: 'Code-Pro-Light-Demo';src: url('/css/webfonts/16CC75_1.eot');src: url('/css/webfonts/16CC75_1.eot?#iefix') format('embedded-opentype'),url('/css/webfonts/16CC75_1.woff') format('woff'),url('/css/webfonts/16CC75_1.ttf') format('truetype'),url('/css/webfonts/16CC75_1.svg#wf') format('svg');}
 
 /* More semicolons*/
 
