@@ -1,0 +1,9 @@
+<div class="wrap">
+  <h1 class="photopage"><%=current.name%></h1>
+  <div id="pictures">
+  <% for(var i in current['photos']) { var pic = current['photos'][i]; %>
+    <div class="picture" style="background-image: url('<%-pic.source%>');">
+    </div>
+  <% } %>
+  </div>
+</div>
