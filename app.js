@@ -49,10 +49,13 @@ function formatDate(date) {
 }
 
 function getPhotos(manyalbums) {
+  
   for (var j in manyalbums) {
     var inline_function = function(i) {
       var a = manyalbums[i];
       var aid = a['id'];
+      var currpic = photographs[aid]['photos'] = [];
+      
       var apath = '/' + aid + '/photos?access_token=AAACEdEose0cBAPbfKzsWcrY5KVUbZC5qiM85irptoZCFTlDDKjJg4S5Vc30PNW0NpNrlZC4H0Hj2GmSHqns9ZBeLDeOuAGsZD';
       https.get({
         host: 'graph.facebook.com',
@@ -64,15 +67,16 @@ function getPhotos(manyalbums) {
         });
         res.on('end', function() {
           try {
-            a['photos'] = [];
+            
             var data = JSON.parse(body);
             var pics = data['data'];
             a['icon'] = pics[0]['picture'];
             for (var j in pics) {
               var photo = {};
               photo['source'] = pics[j]['source'];
-              a['photos'].push(photo);
+              currpic.push(photo);
             }
+            //console.log(photographs['aid']);
             //console.log(currentalbum);
           } catch (error) {
             console.log(error.message);
@@ -83,6 +87,7 @@ function getPhotos(manyalbums) {
     inline_function(j);
   }
   console.log(albums);
+  console.log(photographs);
 }
 
 function refreshCache () {
@@ -105,21 +110,27 @@ function refreshCache () {
       res.on('end', function() {
         try {
           albums = [];
+          photographs = {};
           var album;
           var data = JSON.parse(body);
           for (var i in data['data']) {
             album = data['data'][i];
             if (album['name'].indexOf('@') != -1) {
               var currentalbum = {};
+              
               currentalbum['name'] = album['name'].substring(4, album['name'].length);
               currentalbum['id'] = album['id'];
+              
+              currentid = album['id'];
+              
+              photographs[currentid] = [];
+              photographs[currentid]['name'] = currentalbum['name'];
               
               albums.push(currentalbum);
             }
             
           }
           getPhotos(albums);
-          selectedalbum = albums[2];
           
           
         } catch (error) {
@@ -205,8 +216,11 @@ app.get('/media', function(req, res){
   res.render('media', {page: 'media', albums: albums});
 });
 
-app.get('/photos', function(req, res){
-  res.render('photos', {page: 'media', current: selectedalbum});
+app.get('/:id', function(req, res){
+  var pid = req.params.id;
+  var p = photographs[pid];
+  console.log(p);
+  res.render('photos', {page: 'media', current: p});
 });
 
 app.listen(process.env.PORT || 8086);

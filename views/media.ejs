@@ -1,4 +1,5 @@
 <div class="wrap">
+
   <h1>This is what we do</h1>
   <div class="box">
     <p>We take great pride in being able to record every event photographically. Here's our collection.</p>
@@ -7,7 +8,7 @@
   <h1>Albums</h1>
   <div id="albums">
   <% for(var i in albums) { var album = albums[i]; %>
-    <a href="/photos" onclick="<% selectedalbum = album; %>"><div class="album" id="<%-album.id%>">
+    <a href="/<%-album.id%>"><div class="album">
     <div class="albumimage" style="background-image: url('<%-album.icon%>');"></div> 
     <div class="albumtitle"><%=album.name%></div></a>
   </div>
