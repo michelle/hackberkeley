@@ -34,6 +34,7 @@ a {
 h1, h2, h3 {
   font-weight: normal;
   font-family: Code-Pro-Demo; 
+  text-shadow: 0 1px 0px #fff; 
 }
 
 h1 {
@@ -350,10 +351,9 @@ h4 {
   background-color: #000;
   text-align: center;
   color: #fff;
-  padding: 3px 0 3px 0;
+  padding: 3px 0;
   margin: -10px -10px 5px -10px;
   font-size: 15px;
-  line-height: 20px;
   font-weight: normal;
   font-family: Code-Pro-Demo; 
 }
@@ -373,7 +373,7 @@ h4 {
   text-align: center;
   font-size: 12px;
   padding: 10px;
-  opacity: 0.6;
+  opacity: 0.9;
   text-transform: uppercase;
 }
 
@@ -401,26 +401,7 @@ h4 {
   margin-bottom: -60px;
 }
 
-.butt {
-  border-radius: 10px;
-  padding: 0 20px 5px 20px;
-  line-height: 30px;
-  background-color: rgba(165,213,0,0.7);
-  -webkit-transition:background-color 250ms ease-in;  
-  -moz-transition:background-color 250s ease-in;  
-  -o-transition:background-color 250ms ease-in;  
-  transition:background-color 250ms ease-in;
-  color: #000;
-  -moz-box-shadow: 1px 1px 3px #aaa;
-  -webkit-box-shadow: 1px 1px 3px #aaa;
-  box-shadow: 1px 1px 3px #aaa;
-}
 
 .photopage {
   text-align: center;
-}
-
-.butt:hover {
-  color: #000;
-  background-color: rgba(165,213,0,0.3);
 }
