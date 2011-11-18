@@ -34,6 +34,7 @@ a {
 h1, h2, h3 {
   font-weight: normal;
   font-family: Code-Pro-Demo; 
+  text-shadow: 0 1px 0 #fff;
 }
 
 h1 {
