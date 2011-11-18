@@ -48,6 +48,44 @@ function formatDate(date) {
   return h+":"+m+dd;
 }
 
+function getPhotos(manyalbums) {
+  console.log(manyalbums);
+  for (var i in manyalbums) {
+    var a = manyalbums[i];
+    console.log(a);
+    var aid = a['id'];
+    var apath = '/' + aid + '/photos?access_token=AAACEdEose0cBAEVzEJbYhwJrH7DTFxBZBo7bo6yp5WQyaKok9pgL2nZAqgIy4SGC5HOXvthuijGSnjmLkZBVq0r09cSZCt53tmyEC4nUKlgArLZCufZA2B';
+    https.get({
+      host: 'graph.facebook.com',
+      path: apath
+    }, function(res) {
+      console.log("hello2");
+      var body = "";
+      res.on('data', function(chunk) {
+        body += chunk;
+      });
+      res.on('end', function() {
+        try {
+          //console.log(album);
+          a['photos'] = [];
+          var data = JSON.parse(body);
+          var pics = data['data'];
+          console.log(pics);
+          a['icon'] = pics[0]['picture'];
+          for (var j in pics) {
+            var photo = {};
+            photo['source'] = pics[j]['source'];
+            a['photos'].push(photo);
+          }
+          //console.log(currentalbum);
+        } catch (error) {
+          console.log(error.message);
+        }
+      }); 
+    });
+  }
+}
+
 function refreshCache () {
   mongo.db('heroku:hackers@staff.mongohq.com:10065/app1491090').collection('people').find().sort({'order':1}).toArray(function(err, items){
       people = items;
@@ -76,44 +114,12 @@ function refreshCache () {
               var currentalbum = {};
               currentalbum['name'] = album['name'].substring(4, album['name'].length);
               currentalbum['id'] = album['id'];
-              var currentPath = '/' + currentalbum['id'] + '/photos?access_token=AAACEdEose0cBAOKugY5gIL4iJ0mPT0GNlz0RCRMnuYgFxZBmqjnDrFhqbKvAenCvXQL87YOyynyWQtP5x1sLhZCq7JIxi2H2rjQyqLfsmLDDsFSvHZA';
-              try {
-                console.log("hello");
-                https.get({
-                  host: 'graph.facebook.com',
-                  path: currentPath
-                }, function(res) {
-                  console.log("hello2");
-                  var body = "";
-                  res.on('data', function(chunk) {
-                    body += chunk;
-                  });
-                  res.on('end', function() {
-                    try {
-                      //console.log(album);
-                      currentalbum['photos'] = [];
-                      var data = JSON.parse(body);
-                      var pics = data['data'];
-                      currentalbum['icon'] = pics[0]['picture'];
-                      for (var j in pics) {
-                        var photo = {};
-                        photo['source'] = pics[j]['source'];
-                        currentalbum['photos'].push(photo);
-                      }
-                      //console.log(currentalbum);
-                    } catch (error) {
-                      console.log(error.message);
-                    }
-                  }); 
-                });
-                albums.push(currentalbum);
-              } catch (error) {
-                console.log(error);
-              }
+              
+              albums.push(currentalbum);
             }
             
           }
-          console.log(albums);
+          getPhotos(albums);
           selectedalbum = albums[4];
           
         } catch (error) {
