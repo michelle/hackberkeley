@@ -56,9 +56,10 @@ function refreshCache () {
       projects = items;
   });
   
+
   https.get({
     host: 'graph.facebook.com',
-    path: '/SuperBreakfastCereal/albums?access_token=AAACEdEose0cBABljA7jkLSXI1ECc2xZAEvFnjbmPOKFwHEWPepADZCYEOwGejUDBdOMaj1ILOrQ1a8N4LqHT4aFXQQ1pIsqUCfBvKWZCtxo5hJVyait'
+    path: '/1295520723/albums?access_token=AAACEdEose0cBAPnV0h4jNfga8YLQcIPJxZAtmtvR4TVCCYPGJTQ7hy9MrTsPjvmCesFyNHq22huv6926PAHV4PcJIo208QxH2i2JJiidNiYSULrHa'
   }, function(res) {
       var body = "";
       res.on('data', function(chunk) {
@@ -66,17 +67,61 @@ function refreshCache () {
       });
       res.on('end', function() {
         try {
-          albums = {}
+          albums = [];
           var album;
-          for (var i in data) {
-            album = data[i];
-            albums.push(album);
+          var data = JSON.parse(body);
+          for (var i in data['data']) {
+            album = data['data'][i];
+            if (album['name'].indexOf('@') != -1) {
+              var currentalbum = {};
+              currentalbum['name'] = album['name'].substring(4, album['name'].length);
+              currentalbum['id'] = album['id'];
+              var currentPath = '/' + currentalbum['id'] + '/photos?access_token=AAACEdEose0cBAOKugY5gIL4iJ0mPT0GNlz0RCRMnuYgFxZBmqjnDrFhqbKvAenCvXQL87YOyynyWQtP5x1sLhZCq7JIxi2H2rjQyqLfsmLDDsFSvHZA';
+              try {
+                console.log("hello");
+                https.get({
+                  host: 'graph.facebook.com',
+                  path: currentPath
+                }, function(res) {
+                  console.log("hello2");
+                  var body = "";
+                  res.on('data', function(chunk) {
+                    body += chunk;
+                  });
+                  res.on('end', function() {
+                    try {
+                      //console.log(album);
+                      currentalbum['photos'] = [];
+                      var data = JSON.parse(body);
+                      var pics = data['data'];
+                      currentalbum['icon'] = pics[0]['picture'];
+                      for (var j in pics) {
+                        var photo = {};
+                        photo['source'] = pics[j]['source'];
+                        currentalbum['photos'].push(photo);
+                      }
+                      //console.log(currentalbum);
+                    } catch (error) {
+                      console.log(error.message);
+                    }
+                  }); 
+                });
+                albums.push(currentalbum);
+              } catch (error) {
+                console.log(error);
+              }
+            }
+            
           }
+          console.log(albums);
+          selectedalbum = albums[4];
+          
         } catch (error) {
           console.log(error.message);
         }
       });
   });
+
     
   
   https.get({
@@ -151,6 +196,10 @@ app.get('/people', function(req, res){
 
 app.get('/media', function(req, res){
   res.render('media', {page: 'media', albums: albums});
+});
+
+app.get('/photos', function(req, res){
+  res.render('photos', {page: 'media', current: selectedalbum});
 });
 
 app.listen(process.env.PORT || 8086);

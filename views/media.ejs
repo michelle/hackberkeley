@@ -5,9 +5,16 @@
     <p></p>
   </div>
   <h1>Albums</h1>
+  <div id="albums">
   <% for(var i in albums) { var album = albums[i]; %>
-    <div class="eventimage" style="background-image: url('<%-album.cover_photo%>');"></div> 
-    <div class="eventtitle"><%=album.name%> / <%=album.date%></div>
-
+    <a href="/photos" onclick="<% selectedalbum = album; %>"><div class="album" id="<%-album.id%>">
+    <div class="albumimage" style="background-image: url('<%-album.icon%>');"></div> 
+    <div class="albumtitle"><%=album.name%></div></a>
+    
+    <!-- var eyedee = '#' + album.id; document.getElementById(eyedee).click( function() { selectedalbum = album } ); -->
+  </div>
   <% } %>
+  
+  
+  </div>
 </div>

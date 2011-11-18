@@ -183,11 +183,11 @@ p {
   font-family: Code-Pro-Demo;
 }
 
-.sponsors, #peoplepersons, #homeevents {
+#pictures, #albums, .sponsors, #peoplepersons, #homeevents {
   margin: -10px;
 }
 
-.sponsor, .people, .event {
+.picture, .album, .sponsor, .people, .event {
   width: 270px;
   height: 270px;
   float: left;
@@ -198,6 +198,16 @@ p {
   -moz-box-shadow: 1px 1px 3px #aaa;
   -webkit-box-shadow: 1px 1px 3px #aaa;
   cursor: auto;
+}
+
+#pictures {
+  width: 720px;
+  margin: 0 auto;
+}
+
+.picture { 
+  height: 482px;
+  width: 720px;
 }
 
 .sponsor {
@@ -216,7 +226,7 @@ p {
   opacity: 1;
 }
 
-.personimage, .eventimage {
+.albumimage, .personimage, .eventimage {
   opacity: 0.7;
   width: 270px;
   height: 270px;
@@ -230,6 +240,12 @@ p {
   background: #fff center center no-repeat;
   -webkit-transition:opacity 150ms ease-in;
   z-index: 10;
+}
+
+.albumimage, .album {
+  width: 158px;
+  height: 105px;
+  background-size: 100%;
 }
 
 .people, .personimage {
@@ -262,7 +278,7 @@ p {
   opacity: 0;
 }
 
-.persontitle, .eventtitle {
+.albumtitle, .persontitle, .eventtitle {
   position: absolute;
   width: 250px;
   bottom: 0;
@@ -282,6 +298,10 @@ p {
 
 .persontitle {
   width: 180px;
+}
+
+.albumtitle {
+  width: 138px;
 }
 
 .clear {
