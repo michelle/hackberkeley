@@ -206,8 +206,10 @@ p {
 }
 
 #pictures {
-  width: 720px;
+  width: 750px;
   margin: 0 auto;
+  /*overflow: scroll;
+  height: 512px;*/
 }
 
 .picture { 

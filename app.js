@@ -219,8 +219,12 @@ app.get('/media', function(req, res){
 app.get('/:id', function(req, res){
   var pid = req.params.id;
   var p = photographs[pid];
-  console.log(p);
-  res.render('photos', {page: 'media', current: p});
+  if (p != undefined) {
+    res.render('photos', {page: 'media', current: p});
+  } else {
+    res.render('home', {page: 'home', events: events});
+  }
+    
 });
 
 app.listen(process.env.PORT || 8086);

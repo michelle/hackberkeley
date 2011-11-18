@@ -9,6 +9,88 @@
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script> 
 <script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/jquery.mousewheel.min.js"></script>
+
+<!--script type="text/javascript">
+var snap_timer;
+var scroll_from_mouse = true;
+
+function snapList(){
+  var snapped = false;
+  var i = 0;
+  while(!snapped && i < $('#pictures div').size()){
+    var itop = $('#pictures div').eq(i).position().top;
+    var iheight = $('#pictures div').eq(i).outerHeight();
+    if(itop < iheight && itop > 0){ 
+      scroll_from_mouse = false;
+      snapped = true;
+      var new_scroll_top = 0;
+      if(iheight - itop > iheight / 2)
+        new_scroll_top = $('#pictures').scrollTop() + itop;
+      else if(i > 1)
+        new_scroll_top = $('#pictures').scrollTop() - ($('#pictures div').eq(i-1).outerHeight() - itop);
+      else
+        new_scroll_top = 0;
+      $('#pictures').scrollTop(new_scroll_top);
+    }
+    i++;
+  }
+};
+
+$(function(){
+  $('#pictures').scroll(function(){
+    clearTimeout(snap_timer);
+    if(scroll_from_mouse) snap_timer = setTimeout(snapList, 200);
+    scroll_from_mouse = true;
+  });
+});
+</script>
+
+<script type="text/javascript">
+		var position = 0;
+		
+		function bindEvents (z) {
+			if (z) {
+				$(document).bind('mousewheel', mouseScroll );
+				$(document).bind('keydown', keyScroll );
+			} else {
+				$(document).unbind('mousewheel');
+				$(document).unbind('keydown');
+			}
+		}
+		
+		function limitValue (d) {
+			var n = (d < 0) ? position + 1 : position - 1;
+					n = (n < 0) ? 0 : n;
+					n = (n >= $("#pictures div").length) ? $("#picture div").length - 1 : n;
+			return n;
+		}
+		
+		function keyScroll (key) {
+			var d = (key.which == 38) ? 1 : (key.which == 40) ? -1 : 0;
+			if (!d) return key;
+			scrollColumns( position, limitValue(d) );
+			position = limitValue(d);
+		}
+		
+		function mouseScroll (e, d) {
+			scrollColumns(position, limitValue(d));
+			position = limitValue(d);
+			e.preventDefault();
+		}
+		
+		function scrollColumns (x, y) {
+			
+		
+			if ( y != x ) {
+				$("div:nth-child("+(y+1)+")").stop().fadeTo(300, 1.0);
+				$("#pictures").stop().animate({ top: y * -500  }, 350, "easeOutBack");
+				$("div:nth-child("+(x+1)+")").stop().fadeTo(300, 0.3);
+			}
+		}
+		
+
+</script-->
 
 </head> 
  
