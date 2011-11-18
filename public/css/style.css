@@ -362,6 +362,23 @@ h4 {
   text-transform: uppercase;
 }
 
+#footer input {
+  line-height: 11px;
+  padding: 2px;
+  margin: 0 2px 0 2px;
+  font-size: 10px;
+}
+
+#email {
+  background-color: rgba(165,213,0,0.4);
+  border: 0;
+}
+
+#mailinglist {
+  padding-bottom: 2px;
+  cursor: auto;
+}
+
 #helpMeImStuck {
   min-height: 100%;
   height: auto !important;

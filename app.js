@@ -53,7 +53,7 @@ function getPhotos(manyalbums) {
     var inline_function = function(i) {
       var a = manyalbums[i];
       var aid = a['id'];
-      var apath = '/' + aid + '/photos?access_token=AAACEdEose0cBAEVzEJbYhwJrH7DTFxBZBo7bo6yp5WQyaKok9pgL2nZAqgIy4SGC5HOXvthuijGSnjmLkZBVq0r09cSZCt53tmyEC4nUKlgArLZCufZA2B';
+      var apath = '/' + aid + '/photos?access_token=AAACEdEose0cBAPbfKzsWcrY5KVUbZC5qiM85irptoZCFTlDDKjJg4S5Vc30PNW0NpNrlZC4H0Hj2GmSHqns9ZBeLDeOuAGsZD';
       https.get({
         host: 'graph.facebook.com',
         path: apath
@@ -96,7 +96,7 @@ function refreshCache () {
 
   https.get({
     host: 'graph.facebook.com',
-    path: '/1295520723/albums?access_token=AAACEdEose0cBAPnV0h4jNfga8YLQcIPJxZAtmtvR4TVCCYPGJTQ7hy9MrTsPjvmCesFyNHq22huv6926PAHV4PcJIo208QxH2i2JJiidNiYSULrHa'
+    path: '/1295520723/albums?access_token=AAACEdEose0cBAPbfKzsWcrY5KVUbZC5qiM85irptoZCFTlDDKjJg4S5Vc30PNW0NpNrlZC4H0Hj2GmSHqns9ZBeLDeOuAGsZD'
   }, function(res) {
       var body = "";
       res.on('data', function(chunk) {
