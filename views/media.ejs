@@ -8,7 +8,7 @@
   <h1>Albums</h1>
   <div id="albums">
   <% for(var i in albums) { var album = albums[i]; %>
-    <a href="/<%-album.id%>"><div class="album">
+    <a href="/media/<%-album.id%>"><div class="album">
     <div class="albumimage" style="background-image: url('<%-album.icon%>');"></div> 
     <div class="albumtitle"><%=album.name%></div></a>
   </div>

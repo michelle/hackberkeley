@@ -56,7 +56,7 @@ function getPhotos(manyalbums) {
       var aid = a['id'];
       var currpic = photographs[aid]['photos'] = [];
       
-      var apath = '/' + aid + '/photos?access_token=AAACEdEose0cBAPbfKzsWcrY5KVUbZC5qiM85irptoZCFTlDDKjJg4S5Vc30PNW0NpNrlZC4H0Hj2GmSHqns9ZBeLDeOuAGsZD';
+      var apath = '/' + aid + '/photos?limit=200&access_token=AAACEdEose0cBAPbfKzsWcrY5KVUbZC5qiM85irptoZCFTlDDKjJg4S5Vc30PNW0NpNrlZC4H0Hj2GmSHqns9ZBeLDeOuAGsZD';
       https.get({
         host: 'graph.facebook.com',
         path: apath
@@ -86,8 +86,6 @@ function getPhotos(manyalbums) {
     }
     inline_function(j);
   }
-  console.log(albums);
-  console.log(photographs);
 }
 
 function refreshCache () {
@@ -216,13 +214,13 @@ app.get('/media', function(req, res){
   res.render('media', {page: 'media', albums: albums});
 });
 
-app.get('/:id', function(req, res){
+app.get('/media/:id', function(req, res){
   var pid = req.params.id;
   var p = photographs[pid];
   if (p != undefined) {
     res.render('photos', {page: 'media', current: p});
   } else {
-    res.render('home', {page: 'home', events: events});
+    res.redirect('/media');
   }
     
 });

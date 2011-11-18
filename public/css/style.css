@@ -2,8 +2,8 @@ html{color:#000;background:#FFF;}body,div,dl,dt,dd,ul,ol,li,pre,code,form,fields
 a {outline: none;} /* Gets rid of Firefox's dotted borders */
 a img {border: none;} /* Gets rid of IE's blue borders */
 
-@font-face {font-family: 'Code-Pro-Demo';src: url('webfonts/16CC75_0.eot');src: url('webfonts/16CC75_0.eot?#iefix') format('embedded-opentype'),url('webfonts/16CC75_0.woff') format('woff'),url('webfonts/16CC75_0.ttf') format('truetype'),url('webfonts/16CC75_0.svg#wf') format('svg');}
-@font-face {font-family: 'Code-Pro-Light-Demo';src: url('webfonts/16CC75_1.eot');src: url('webfonts/16CC75_1.eot?#iefix') format('embedded-opentype'),url('webfonts/16CC75_1.woff') format('woff'),url('webfonts/16CC75_1.ttf') format('truetype'),url('webfonts/16CC75_1.svg#wf') format('svg');}
+@font-face {font-family: 'Code-Pro-Demo';src: url('/css/webfonts/16CC75_0.eot');src: url('/css/webfonts/16CC75_0.eot?#iefix') format('embedded-opentype'),url('/css/webfonts/16CC75_0.woff') format('woff'),url('/css/webfonts/16CC75_0.ttf') format('truetype'),url('/css/webfonts/16CC75_0.svg#wf') format('svg');}
+@font-face {font-family: 'Code-Pro-Light-Demo';src: url('/css/webfonts/16CC75_1.eot');src: url('/css/webfonts/16CC75_1.eot?#iefix') format('embedded-opentype'),url('/css/webfonts/16CC75_1.woff') format('woff'),url('/css/webfonts/16CC75_1.ttf') format('truetype'),url('/css/webfonts/16CC75_1.svg#wf') format('svg');}
 
 /* More semicolons*/
 
@@ -351,10 +351,9 @@ h4 {
   background-color: #000;
   text-align: center;
   color: #fff;
-  padding: 3px 0 3px 0;
+  padding: 3px 0;
   margin: -10px -10px 5px -10px;
   font-size: 15px;
-  line-height: 20px;
   font-weight: normal;
   font-family: Code-Pro-Demo; 
 }
@@ -374,7 +373,7 @@ h4 {
   text-align: center;
   font-size: 12px;
   padding: 10px;
-  opacity: 0.6;
+  opacity: 0.9;
   text-transform: uppercase;
 }
 
@@ -402,26 +401,7 @@ h4 {
   margin-bottom: -60px;
 }
 
-.butt {
-  border-radius: 10px;
-  padding: 0 20px 5px 20px;
-  line-height: 30px;
-  background-color: rgba(165,213,0,0.7);
-  -webkit-transition:background-color 250ms ease-in;  
-  -moz-transition:background-color 250s ease-in;  
-  -o-transition:background-color 250ms ease-in;  
-  transition:background-color 250ms ease-in;
-  color: #000;
-  -moz-box-shadow: 1px 1px 3px #aaa;
-  -webkit-box-shadow: 1px 1px 3px #aaa;
-  box-shadow: 1px 1px 3px #aaa;
-}
 
 .photopage {
   text-align: center;
-}
-
-.butt:hover {
-  color: #000;
-  background-color: rgba(165,213,0,0.3);
 }
