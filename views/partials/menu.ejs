@@ -1,9 +1,14 @@
     <div id="menu">
-      <a href="/home"<% if(page === 'home') { %> class="selected"<% } %>>Home</a>
-      <a href="/events"<% if(page === 'events') { %> class="selected"<% } %>>Events</a>
-      <a href="/people"<% if(page === 'people') { %> class="selected"<% } %>>People</a>
-      <a href="/media"<% if(page === 'media') { %> class="selected"<% } %>>Media</a>
-      <a href="/sponsors"<% if(page === 'sponsors') { %> class="selected"<% } %>>Sponsorship</a>
+      <% if(page != 'home') { %><a href="/home">Home</a><% } %>
+      <% if(page === 'home') { %><span class="current">Home</span><% } %>
+      <% if(page != 'events') { %><a href="/events">Events</a><% } %>
+      <% if(page === 'events') { %><span class="current">Events</span><% } %>
+      <% if(page != 'people') { %><a href="/people">People</a><% } %>
+      <% if(page === 'people') { %><span class="current">People</span><% } %>
+      <% if(page != 'media') { %><a href="/media">Media</a><% } %>
+      <% if(page === 'media') { %><span class="current">Media</span><% } %>
+      <% if(page != 'sponsors') { %><a href="/sponsors">Sponsorship</a><% } %>
+      <% if(page === 'sponsors') { %><span class="current">Sponsorship</span><% } %>
       <a href="http://www.facebook.com/groups/hackberkeley/">Facebook</a>
       <a href="https://github.com/HackBerkeley">Github</a>
     </div>
