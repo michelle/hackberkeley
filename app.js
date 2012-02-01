@@ -56,7 +56,7 @@ function getPhotos(manyalbums) {
       var aid = a['id'];
       var currpic = photographs[aid]['photos'] = [];
       
-      var apath = '/' + aid + '/photos?limit=200&access_token=AAACEdEose0cBAPbfKzsWcrY5KVUbZC5qiM85irptoZCFTlDDKjJg4S5Vc30PNW0NpNrlZC4H0Hj2GmSHqns9ZBeLDeOuAGsZD';
+      var apath = '/' + aid + '/photos?limit=200&access_token=AAACEdEose0cBAOKbpyd9MmiAiTRIgY8XPh2ZAQo63ZAYR188yeMtv5qHIXisRpZAsdIEw8qYZCdT9zjTcKPk0Oecls2W93EZD';
       https.get({
         host: 'graph.facebook.com',
         path: apath
@@ -99,7 +99,7 @@ function refreshCache () {
 
   https.get({
     host: 'graph.facebook.com',
-    path: '/1295520723/albums?access_token=AAACEdEose0cBAPbfKzsWcrY5KVUbZC5qiM85irptoZCFTlDDKjJg4S5Vc30PNW0NpNrlZC4H0Hj2GmSHqns9ZBeLDeOuAGsZD'
+    path: '/1295520723/albums?access_token=AAACEdEose0cBAOKbpyd9MmiAiTRIgY8XPh2ZAQo63ZAYR188yeMtv5qHIXisRpZAsdIEw8qYZCdT9zjTcKPk0Oecls2W93EZD'
   }, function(res) {
       var body = "";
       res.on('data', function(chunk) {
