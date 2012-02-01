@@ -23,7 +23,11 @@ a {
   transition:color 150ms ease-in;
 }
 
-.blue, a:hover, #menu a:hover, #menu a.selected {
+.blue, a:hover {
+  color: #a5d500;
+}
+
+#menu a:hover {
   color: #a5d500;
 }
 
@@ -103,10 +107,14 @@ h3 {
 
 }
 
-#menu a {
+.current, #menu a {
   display: inline-block;
   color: #fff;
   padding: 0px 18px 10px 18px;
+}
+
+.current {
+  color: #a5d500;
 }
 
 .box {
