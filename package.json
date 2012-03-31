@@ -8,7 +8,7 @@
   },
   "main": "app.js",
   "engines": {
-    "node": "~v0.4.10"
+    "node": "~v0.6.11"
   },
   "dependencies":{
     "express":"",
