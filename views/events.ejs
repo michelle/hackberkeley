@@ -15,7 +15,7 @@
   <% } %>
   <h1>Past events</h1>
     <% for(var i in events.old) { var event = events.old[i]; %> 
-    <div class="eventcomplete box" style="background-image: url('<%-event.pic_big%>');">      
+    <div class="eventcomplete box" style="background-image: url('<%-event.pic_url%>');">      
      <div class="small"><%=event.date%> / <%=event.time%> / <%=event.location%></div>
      <strong><a href="http://www.facebook.com/event.php?eid=<%=event.eid%>"><%=event.name%></a></strong>
       </div>
