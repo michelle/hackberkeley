@@ -12,11 +12,15 @@ var projects;
 var events;
 
 function asorter(a, b) {
-  return a.start_time-b.start_time;
+  return getTime(a.start_time)-getTime(b.start_time);
 }
 
 function dsorter(a, b) {
-  return b.start_time-a.start_time;
+  return getTime(b.start_time)-getTime(a.start_time);
+}
+
+function getTime(a) {
+  return new Date(a).getTime();
 }
 
 function formatDate(date) {
@@ -139,7 +143,7 @@ function refreshCache () {
   
   https.get({
     host: 'graph.facebook.com',
-    path: 'https://graph.facebook.com/me/events?access_token=AAAAAAITEghMBAFXimD6Tw3w8qZBKiumVueFLCCQORqfgaTA8ZAM6dyZCjZBIZCo7piQBk5Bc7eGUD1OoQaHrX6g9fKN78dow5Ujk32umU9FMfxNceAXan&until=13322088000&limit=1000'
+    path: 'https://graph.facebook.com/me/events?access_token=AAAD3shybXjYBAJeBIpg6uKS1edUGvHnZBo7Otf65QfBaFNk3FQCAAWb6D2ILICPb0xDeU4ZAM9BrcDGSw6t5wP9ZCCuG6oZD&limit=925&until=13321836000&__paging_token=301710103229855'
   }, function(res) {
     var body = "";
     res.on('data', function(chunk){
@@ -185,6 +189,7 @@ function refreshCache () {
                   events.old.push(event);
                 }
 
+                // sorts the events every time. this may be ineffecient depending on what the sorting algorithm is and could be refactored
                 events.new.sort(asorter);
                 events.old.sort(dsorter);
               });
