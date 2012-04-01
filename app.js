@@ -177,7 +177,7 @@ function refreshCache () {
                 event.time = formatDate(date);
                 console.log(event.time);
                 event.description = event.description.split('\n').shift();
-                event.pic_url = "https://graph.facebook.com/" + event.id + "/picture"
+                event.pic_url = "https://graph.facebook.com/" + event.id + "/picture?type=large"
                 console.log(event);
                 if(event.dateObj.valueOf() > ts) {
                   events.new.push(event);

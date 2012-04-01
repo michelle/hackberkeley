@@ -7,9 +7,9 @@
   </div>
   <h1>Upcoming</h1>
   <% for(var i in events.new) { var event = events.new[i]; %> 
-    <div class="eventbox box" style="background-image: url('<%-event.pic_big%>');">      
+    <div class="eventbox box" style="background-image: url('<%-event.pic_url%>');">      
      <div class="small"><%=event.date%> / <%=event.time%> / <%=event.location%></div>
-     <strong><a href="http://www.facebook.com/event.php?eid=<%=event.eid%>"><%=event.name%></a></strong>
+     <strong><a href="http://www.facebook.com/event.php?eid=<%=event.id%>"><%=event.name%></a></strong>
       <p><%-event.description%></p>
     </div>
   <% } %>
@@ -17,7 +17,7 @@
     <% for(var i in events.old) { var event = events.old[i]; %> 
     <div class="eventcomplete box" style="background-image: url('<%-event.pic_url%>');">      
      <div class="small"><%=event.date%> / <%=event.time%> / <%=event.location%></div>
-     <strong><a href="http://www.facebook.com/event.php?eid=<%=event.eid%>"><%=event.name%></a></strong>
+     <strong><a href="http://www.facebook.com/event.php?eid=<%=event.id%>"><%=event.name%></a></strong>
       </div>
   <% } %>
 </div>
