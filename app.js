@@ -138,8 +138,8 @@ function refreshCache () {
     
   
   https.get({
-    host: 'api.facebook.com',
-    path: '/method/events.get?uid=276905079008757&format=json&access_token=AAACl9M0dbJgBAKMtyld9DAzLxxMPPUybU86yZBrC3ZADZALtmTd5hTh3ODfZCzY1XQgQzWa4wLwQqvudyjKdL26GdqRQ8AkZBIZCZBfHcCzswZDZD'
+    host: 'graph.facebook.com',
+    path: 'https://graph.facebook.com/me/events?access_token=AAAAAAITEghMBAFXimD6Tw3w8qZBKiumVueFLCCQORqfgaTA8ZAM6dyZCjZBIZCo7piQBk5Bc7eGUD1OoQaHrX6g9fKN78dow5Ujk32umU9FMfxNceAXan&until=13322088000&limit=1000'
   }, function(res) {
     var body = "";
     res.on('data', function(chunk){
@@ -147,34 +147,60 @@ function refreshCache () {
     });
     res.on('end', function(){
       try {
-        var ts = Math.round((new Date()).getTime() / 1000);
+        var ts = (new Date()).valueOf();
         events = {new: [], old: []};
-        var data = JSON.parse(body);
+        data = JSON.parse(body).data;
         
         var event, date;
         for(var i in data) {
           event = data[i];
-          date = new Date((event.start_time  - 8 * 60 * 60) * 1000);
-          event.date = months[date.getMonth()] + " " + date.getDate();
-          event.time = formatDate(date);
-          event.description = event.description.split('\n').shift();
-          
-          if(event.start_time > ts) {
-            events.new.push(event);
-          } else {
-            events.old.push(event);
+          // assumes that title contains @ iff it is an H@B event
+          if( event.name.indexOf("@") != -1 && event.name != undefined) {
+            console.log(event.name);
+            // gets a more detailed event object
+            https.get({
+              host: 'graph.facebook.com',
+              path: event.id
+            }, function(res) {
+              body = "",
+              res.on('data', function(chunk){
+                body += chunk;
+              });
+              res.on('end', function() {
+                if( body == "false") {
+                  return;
+                }
+                event = JSON.parse(body); 
+                date = new Date(event.start_time);
+                event.date = months[date.getMonth()] + " " + date.getDate();
+                event.dateObj = date;
+                event.time = formatDate(date);
+                console.log(event.time);
+                event.description = event.description.split('\n').shift();
+                console.log(event);
+                if(event.dateObj.valueOf() > ts) {
+                  events.new.push(event);
+                } else {
+                  events.old.push(event);
+                }
+
+                events.new.sort(asorter);
+                events.old.sort(dsorter);
+              });
+            });
+
           }
         }
-        
-        events.new.sort(asorter);
-        events.old.sort(dsorter);
-        
+
+
       } catch (e){console.log(e.message)}
     });
   });
 
   setTimeout(refreshCache, 60000);
 }
+
+
 refreshCache();
 
 
@@ -220,7 +246,7 @@ app.get('/media/:id', function(req, res){
   } else {
     res.redirect('/media');
   }
-    
+
 });
 
 app.listen(process.env.PORT || 8086);
