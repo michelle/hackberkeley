@@ -69,7 +69,7 @@ function getPhotos(manyalbums) {
       var aid = a['id'];
       var currpic = photographs[aid]['photos'] = [];
       
-      var apath = '/' + aid + '/photos?limit=200&access_token=AAACl9M0dbJgBAKMtyld9DAzLxxMPPUybU86yZBrC3ZADZALtmTd5hTh3ODfZCzY1XQgQzWa4wLwQqvudyjKdL26GdqRQ8AkZBIZCZBfHcCzswZDZD';
+      var apath = '/' + aid + '/photos?limit=200&access_token=AAAD3shybXjYBAJeBIpg6uKS1edUGvHnZBo7Otf65QfBaFNk3FQCAAWb6D2ILICPb0xDeU4ZAM9BrcDGSw6t5wP9ZCCuG6oZD';
       https.get({
         host: 'graph.facebook.com',
         path: apath
@@ -89,8 +89,6 @@ function getPhotos(manyalbums) {
               photo['source'] = pics[j]['source'];
               currpic.push(photo);
             }
-            //console.log(photographs['aid']);
-            //console.log(currentalbum);
           } catch (error) {
             console.log(error.message);
           }
@@ -112,7 +110,7 @@ function refreshCache () {
 
   https.get({
     host: 'graph.facebook.com',
-    path: '/1295520723/albums?access_token=AAACl9M0dbJgBAKMtyld9DAzLxxMPPUybU86yZBrC3ZADZALtmTd5hTh3ODfZCzY1XQgQzWa4wLwQqvudyjKdL26GdqRQ8AkZBIZCZBfHcCzswZDZD'
+    path: '/1295520723/albums?access_token=AAAD3shybXjYBAJeBIpg6uKS1edUGvHnZBo7Otf65QfBaFNk3FQCAAWb6D2ILICPb0xDeU4ZAM9BrcDGSw6t5wP9ZCCuG6oZD&limit=2500&until=13114601440&__paging_token=2035970260967'
   }, function(res) {
       var body = "";
       res.on('data', function(chunk) {
@@ -171,7 +169,6 @@ function refreshCache () {
           event = data[i];
           // assumes that title contains @ iff it is an H@B event
           if( event.name.indexOf("@") != -1 && event.name != undefined) {
-            console.log(event.name);
             // gets a more detailed event object
             https.get({
               host: 'graph.facebook.com',
@@ -190,10 +187,8 @@ function refreshCache () {
                 event.date = months[date.getMonth()] + " " + date.getDate();
                 event.dateObj = date;
                 event.time = formatDate(date);
-                console.log(event.time);
                 event.description = event.description.split('\n').shift();
                 event.pic_url = "https://graph.facebook.com/" + event.id + "/picture?type=large"
-                console.log(event);
                 if(event.dateObj.valueOf() > ts) {
                   events.new.push(event);
                 } else {
