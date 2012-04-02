@@ -11,6 +11,17 @@ var people;
 var projects;
 var events;
 
+
+// sort comparators for unix timestamps
+function asorterTimestamp(a, b) {
+  return a - b;
+}
+
+function dsorterTimestamp(a, b) {
+  return b - a;
+}
+
+// sort comparers for date strings
 function asorter(a, b) {
   return getTime(a.start_time)-getTime(b.start_time);
 }
