@@ -187,7 +187,9 @@ function refreshCache () {
                 event.date = months[date.getMonth()] + " " + date.getDate();
                 event.dateObj = date;
                 event.time = formatDate(date);
-                event.description = event.description.split('\n').shift();
+                if( event.description != undefined ) {
+                  event.description = event.description.split('\n').shift();
+                }
                 event.pic_url = "https://graph.facebook.com/" + event.id + "/picture?type=large"
                 if(event.dateObj.valueOf() > ts) {
                   events.new.push(event);
