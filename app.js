@@ -192,7 +192,7 @@ function refreshCache () {
                 }
                 event.pic_url = "https://graph.facebook.com/" + event.id + "/picture?type=large"
                 if( event.name.indexOf("Big Hack") >= 0) {
-                  event.pic_url = "/images/events/bighack3.png";
+                  event.pic_url = "/images/events/bighack.png";
                 }
                 if(event.dateObj.valueOf() > ts) {
                   events.new.push(event);
