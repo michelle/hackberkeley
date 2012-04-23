@@ -169,6 +169,7 @@ function refreshCache () {
           event = data[i];
           // assumes that title contains @ iff it is an H@B event
           if( event.name.indexOf("@") != -1 && event.name != undefined) {
+            console.log(event.name);
             // gets a more detailed event object
             https.get({
               host: 'graph.facebook.com',
