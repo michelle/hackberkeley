@@ -167,8 +167,8 @@ function refreshCache () {
         for(var i in data) {
           event = data[i];
           // assumes that title contains @ iff it is an H@B event
-          if( event.name.indexOf("@") != -1 && event.name != undefined) {
-            console.log(event.name);
+          if( event.name.indexOf("@") != -1 && typeof(event.name) !== "undefined") {
+            console.log("Event name: " + event.name);
             // gets a more detailed event object
             https.get({
               host: 'graph.facebook.com',
@@ -183,7 +183,12 @@ function refreshCache () {
                   return;
                 }
                 console.log(body);
-                event = JSON.parse(body); 
+                try {
+                  event = JSON.parse(response);
+                } catch(e) {
+                  console.log("Error while parsing: " + e);
+                  return;
+                }
                 date = new Date(event.start_time);
                 event.date = months[date.getMonth()] + " " + date.getDate();
                 event.dateObj = date;
