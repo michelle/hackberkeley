@@ -3,7 +3,6 @@ var fs = require('fs');
 var app =  express.createServer();
 var https = require('https');
 var mongo = require('mongoskin');
-
 var months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 
 var people;
@@ -182,6 +181,7 @@ function refreshCache () {
                 if( body == "false") {
                   return;
                 }
+                console.log(body);
                 event = JSON.parse(body); 
                 date = new Date(event.start_time);
                 event.date = months[date.getMonth()] + " " + date.getDate();
@@ -214,7 +214,7 @@ function refreshCache () {
     });
   });
 
-  setTimeout(refreshCache, 60000);
+  setTimeout(refreshCache, 2000);
 }
 
 
