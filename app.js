@@ -192,7 +192,7 @@ function refreshCache () {
                   event.description = event.description.split('\n').shift();
                 }
                 event.pic_url = "https://graph.facebook.com/" + event.id + "/picture?type=large"
-                if( event.name != "undefined" && event.name.indexOf("Big Hack") >= 0) {
+                if( typeof(event.name) !== "undefined" && event.name.indexOf("Big Hack") >= 0) {
                   event.pic_url = "/images/events/bighack.png";
                 }
                 if(event.dateObj.valueOf() > ts) {
@@ -215,7 +215,7 @@ function refreshCache () {
     });
   });
 
-  setTimeout(refreshCache, 2000);
+  setTimeout(refreshCache, 60000);
 }
 
 
