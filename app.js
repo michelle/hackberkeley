@@ -184,7 +184,7 @@ function refreshCache () {
                 }
                 console.log(body);
                 try {
-                  event = JSON.parse(response);
+                  event = JSON.parse(body);
                 } catch(e) {
                   console.log("Error while parsing: " + e);
                   return;
