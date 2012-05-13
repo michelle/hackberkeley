@@ -168,11 +168,10 @@ function refreshCache () {
           event = data[i];
           // assumes that title contains @ iff it is an H@B event
           if( event.name.indexOf("@") != -1 && typeof(event.name) !== "undefined") {
-            console.log("Event name: " + event.name);
             // gets a more detailed event object
             https.get({
               host: 'graph.facebook.com',
-              path: event.id
+              path: 'https://graph.facebook.com/' + event.id
             }, function(res) {
               body = "",
               res.on('data', function(chunk){
@@ -182,11 +181,9 @@ function refreshCache () {
                 if( body == "false") {
                   return;
                 }
-                console.log(body);
                 try {
                   event = JSON.parse(body);
                 } catch(e) {
-                  console.log("Error while parsing: " + e);
                   return;
                 }
                 date = new Date(event.start_time);
