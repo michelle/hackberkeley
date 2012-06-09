@@ -152,7 +152,7 @@ function refreshCache () {
   
   https.get({
     host: 'graph.facebook.com',
-    path: 'https://graph.facebook.com/me/events?access_token=AAAD3shybXjYBAJeBIpg6uKS1edUGvHnZBo7Otf65QfBaFNk3FQCAAWb6D2ILICPb0xDeU4ZAM9BrcDGSw6t5wP9ZCCuG6oZD&limit=925&until=13321836000&__paging_token=301710103229855'
+    path: 'https://graph.facebook.com/276905079008757/events?access_token=AAAD3shybXjYBAJeBIpg6uKS1edUGvHnZBo7Otf65QfBaFNk3FQCAAWb6D2ILICPb0xDeU4ZAM9BrcDGSw6t5wP9ZCCu%20G6oZD'
   }, function(res) {
     var body = "";
     res.on('data', function(chunk){
@@ -163,6 +163,7 @@ function refreshCache () {
         var ts = (new Date()).valueOf();
         events = {new: [], old: []};
         data = JSON.parse(body).data;
+        console.log(data);
         
         var event, date;
         for(var i in data) {
