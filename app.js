@@ -2,7 +2,7 @@ var express = require('express');
 var fs = require('fs');
 var app =  express.createServer();
 var https = require('https');
-//var mongo = require('mongoskin');
+var mongo = require('mongoskin');
 var months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 
 var people;
@@ -98,14 +98,12 @@ function getPhotos(manyalbums) {
 }
 
 function refreshCache () {
-/*
   mongo.db('heroku:hackers@staff.mongohq.com:10065/app1491090').collection('people').find().sort({'order':1}).toArray(function(err, items){
       people = items;
   });
   mongo.db('heroku:hackers@staff.mongohq.com:10065/app1491090').collection('projects').find().sort({'order':1}).toArray(function(err, items){
       projects = items;
   });
-  */
   
 
   https.get({
