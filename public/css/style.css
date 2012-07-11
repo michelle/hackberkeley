@@ -55,7 +55,7 @@ h3 {
   margin: 10px 0;
 }
 
-#header, #gloss-content, .wrap {
+#gloss-content, .wrap {
   width: 820px;
   margin: 0 auto;
 }
@@ -64,15 +64,11 @@ h3 {
   margin-bottom: 50px;
 }
 
-#header {
-  height: 110px;
-}
-
 #logo {
   text-align: center;
   font-family: Code-Pro-Demo;
   font-size: 70px;
-  color: #000;
+  color: #fff;
 }
 
 
@@ -82,35 +78,27 @@ h3 {
 }
 
 
-#menu {
+#menu, #bar {
   font-family: Code-Pro-Demo;
   font-size: 20px;
-  height: 35px;
   text-align: center;
 }
 
-#gloss #menu {
-  height: 60px;
-  
-  /* webkit example */
-  background-image: -webkit-gradient(
-    linear, left 35%, left bottom, from(rgba(0, 0, 0, 0.7)),
-    to(rgba(0, 0, 0, 0.0))
-  );
+#stayblack {
+  color: #000;
+}
 
-  /* mozilla example - FF3.6+ */
-  background-image: -moz-linear-gradient(
-    35% 
-    90deg,
-    rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7) 35%
-  );
-
+#gloss #menu, #bar {
+  margin-top: 15px;
+  height: 50px;
+  background-color: rgba(0,0,0,0.6);
+  border-bottom: 2px solid #333;
 }
 
 .current, #menu a {
   display: inline-block;
   color: #fff;
-  padding: 0px 18px 10px 18px;
+  padding: 5px 18px 5px 18px;
 }
 
 .current {
@@ -162,7 +150,7 @@ p {
 
 #gloss {
   width: 100%;
-  height: 427px;
+  height: 537px;
   background: url('/images/WhiteGuy.jpg') center center repeat-x;
   background-size: cover;
   box-shadow: inset 0px 15px 15px -15px #000;
@@ -347,7 +335,8 @@ h5 {
 }
 
 #bar {
-  background-color: #000;
+  background-color: rgba(0,0,0,0.6);
+  height: 50px;
 }
 
 .clear {
@@ -368,10 +357,6 @@ h4 {
 
 .sponsorsbox img {
   margin: 20px;
-}
-
-#logo:hover {
-  color: #000;
 }
 
 #footer {

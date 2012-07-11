@@ -1,8 +1,12 @@
 <% if(page === 'home') { %> 
   <div id="gloss">
+    <a href="/"><div id="logo">HACK<span class="blue">BERKELEY</span></div> </a>
     <%-partial('partials/menu.ejs')%>
   </div>
 <% }  else { %>
+  <div id="header">
+    <a href="/"><div id="logo"><span id="stayblack">HACK</span><span class="blue">BERKELEY</span></div> </a>
+  </div>
   <div id="bar">
     <%-partial('partials/menu.ejs')%>
   </div>
