@@ -13,6 +13,9 @@
     <% if(events.new.length > 3) { %><a href="/events"><h2 class="butt" id="seemore">See all <%=events.new.length%> events</h2></a><% } %>
   </div>
   <div id="homeevents">
+  <% if (events.new.length === 0) { %>
+    <div class="box"><p>There are no upcoming events. Check out our <a href="/events">past events</a> or our <a href="http://www.facebook.com/groups/hackberkeley/">Facebook page</a></p></div>
+  <% } %>
   <% for(var i in events.new) { if(i == 6) {break;} var event = events.new[i]; %>
     <div class="event">
       <a href="http://www.facebook.com/event.php?eid=<%=event.id%>"><div class="eventimage" style="background-image: url('<%-event.pic_url%>');"></div> 

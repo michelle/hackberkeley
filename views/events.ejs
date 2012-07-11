@@ -6,6 +6,9 @@
     <p></p>
   </div>
   <h1>Upcoming</h1>
+  <% if (events.new.length === 0) { %>
+    <div class="box"><p>There are no upcoming events. Check out our <a href="/events">past events</a> or our <a href="http://www.facebook.com/groups/hackberkeley/">Facebook page</a></p></div>
+  <% } %>
   <% for(var i in events.new) { var event = events.new[i]; %> 
     <div class="eventbox box" style="background-image: url('<%-event.pic_url%>');">      
      <div class="small"><%=event.date%> / <%=event.time%> / <%=event.location%></div>
