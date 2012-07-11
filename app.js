@@ -3,13 +3,14 @@ var fs = require('fs');
 var app =  express.createServer();
 var https = require('https');
 var mongo = require('mongoskin');
+var db = mongo.db('heroku:hackers@staff.mongohq.com:10065/app1491090');
 var months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 
 var people;
 var projects;
 var events;
 
-
+var ACCESS_TOKEN = 'AAAD3shybXjYBAJeBIpg6uKS1edUGvHnZBo7Otf65QfBaFNk3FQCAAWb6D2ILICPb0xDeU4ZAM9BrcDGSw6t5wP9ZCCuG6oZD';
 // sort comparators for unix timestamps
 function asorterTimestamp(a, b) {
   return a - b;
@@ -67,7 +68,7 @@ function getPhotos(manyalbums) {
       var aid = a['id'];
       var currpic = photographs[aid]['photos'] = [];
       
-      var apath = '/' + aid + '/photos?limit=200&access_token=AAAD3shybXjYBAJeBIpg6uKS1edUGvHnZBo7Otf65QfBaFNk3FQCAAWb6D2ILICPb0xDeU4ZAM9BrcDGSw6t5wP9ZCCuG6oZD';
+      var apath = '/' + aid + '/photos?limit=200&access_token='+ACCESS_TOKEN;
       https.get({
         host: 'graph.facebook.com',
         path: apath
@@ -98,17 +99,17 @@ function getPhotos(manyalbums) {
 }
 
 function refreshCache () {
-  mongo.db('heroku:hackers@staff.mongohq.com:10065/app1491090').collection('people').find().sort({'order':1}).toArray(function(err, items){
+  db.collection('people').find().sort({'order':1}).toArray(function(err, items){
       people = items;
   });
-  mongo.db('heroku:hackers@staff.mongohq.com:10065/app1491090').collection('projects').find().sort({'order':1}).toArray(function(err, items){
+  db.collection('projects').find().sort({'order':1}).toArray(function(err, items){
       projects = items;
   });
   
 
   https.get({
     host: 'graph.facebook.com',
-    path: '/1295520723/albums?access_token=AAAD3shybXjYBAJeBIpg6uKS1edUGvHnZBo7Otf65QfBaFNk3FQCAAWb6D2ILICPb0xDeU4ZAM9BrcDGSw6t5wP9ZCCuG6oZD&limit=2500&until=13114601440&__paging_token=2035970260967'
+    path: '/1295520723/albums?access_token='+ACCESS_TOKEN+'&limit=2500&until=13114601440&__paging_token=2035970260967'
   }, function(res) {
       var body = "";
       res.on('data', function(chunk) {
