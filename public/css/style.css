@@ -153,7 +153,7 @@ p {
   height: 536px;
   background: url('/images/WhiteGuy.jpg') center center repeat-x;
   background-size: cover;
-  border-bottom: 1px solid #333;
+  border-bottom: 1px solid #fff;
 }
 
 .left {
