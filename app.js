@@ -6,7 +6,6 @@ var mongo = require('mongoskin');
 var db = mongo.db('heroku:hackers@staff.mongohq.com:10065/app1491090');
 var months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 
-var people;
 var projects;
 var events;
 
@@ -99,9 +98,6 @@ function getPhotos(manyalbums) {
 }
 
 function refreshCache () {
-  db.collection('people').find().sort({'order':1}).toArray(function(err, items){
-      people = items;
-  });
   db.collection('projects').find().sort({'order':1}).toArray(function(err, items){
       projects = items;
   });
@@ -252,7 +248,7 @@ app.get('/events', function(req, res){
 });
 
 app.get('/people', function(req, res){
-  res.render('people', {page: 'people', people: people});
+  res.render('people', {page: 'people'});
 });
 
 app.get('/media', function(req, res){

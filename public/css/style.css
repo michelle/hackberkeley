@@ -39,6 +39,7 @@ h1, h2, h3 {
   font-weight: normal;
   font-family: Code-Pro-Demo; 
   text-shadow: 0 1px 0 #fff;
+  clear: both;
 }
 
 h1 {
@@ -180,7 +181,7 @@ p {
   font-family: Code-Pro-Demo;
 }
 
-#pictures, #albums, .sponsors, #peoplepersons, #homeevents {
+#pictures, #albums, .sponsors, .peoplepersons, #homeevents {
   margin: -10px;
 }
 
@@ -251,8 +252,8 @@ p {
 }
 
 .people, .personimage {
-  width: 200px;
-  height: 200px;
+  width: 140px;
+  height: 140px;
   opacity: 1;
   background-size: 100%;
 }
@@ -288,10 +289,6 @@ h5 {
   opacity: 1;
 }
 
-.personimage:hover {
-  opacity: 0;
-}
-
 .albumtitle, .persontitle, .eventtitle {
   position: absolute;
   width: 250px;
@@ -311,7 +308,7 @@ h5 {
 }
 
 .persontitle {
-  width: 180px;
+  width: 120px;
 }
 
 .albumtitle {

@@ -1,6 +1,8 @@
     <div id="menu">
       <% if(page != 'home') { %><a href="/home">Home</a><% } %>
       <% if(page === 'home') { %><span class="current">Home</span><% } %>
+      <% if(page != 'projects') { %><a href="/projects">Projects</a><% } %>
+      <% if(page === 'projects') { %><span class="current">Projects</span><% } %>
       <% if(page != 'events') { %><a href="/events">Events</a><% } %>
       <% if(page === 'events') { %><span class="current">Events</span><% } %>
       <% if(page != 'people') { %><a href="/people">People</a><% } %>
@@ -10,5 +12,4 @@
       <% if(page != 'sponsors') { %><a href="/sponsors">Sponsorship</a><% } %>
       <% if(page === 'sponsors') { %><span class="current">Sponsorship</span><% } %>
       <a href="http://www.facebook.com/groups/hackberkeley/">Facebook</a>
-      <a href="https://github.com/HackBerkeley">Github</a>
     </div>
