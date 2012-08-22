@@ -11,7 +11,7 @@
     "node": "~v0.6.11"
   },
   "dependencies":{
-    "express":"",
+    "express":"2.5.11",
     "ejs":"",
     "mongoskin": ""
   },
