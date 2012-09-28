@@ -4,7 +4,7 @@
 		$("#addField").click( function() {
 			$("#nameFields").append('<input type="text" name="name[]" required placeholder="Name"><a href="#" class="removeField">-</a><br/>');
 		});
-		$(".hackform").on("click", ".removeField", function( ) {
+		$(".hackForm").on("click", ".removeField", function( ) {
       console.log(this);
 			$(this).prev().remove();
 			$(this).next().remove();
@@ -14,18 +14,25 @@
 	});
 </script>
 
-<div class="formmiddle">
-  <form class="hackform" action="hackjam" method="post">
+<div class="wrap">
+  <h1>Submit your Hack!</h1>
+  <div class="box">
+  <form class="hackForm" action="hackjam" method="post">
+  <div class="hackFormColumn1">
     <input type="text" name="project_name" required placeholder="Project Name"><br> 
     <div id="nameFields">
       <input type="text" name="name[]" required placeholder="Name">
+      <div class="addButton"><a href="#" onclick="return false;" id="addField">+</a></div>
     </div>
-    <div class="addButton"><a href="#" onclick="return false;" id="addField">+</a></div>
+  </div>
+  <div class="hackFormColumn2">
     <input type="text" name="email" required placeholder="Email"><br>
     <input type="text" name="screenshot" required placeholder="Screenshot URL"><br>
     <input type="text" name="demo" placeholder="Demo/Repo"><br>
     <input class="button longsmallbtn greenbtn" type="submit" value="Submit">
+  </div>
+  <div class="betterClear"></div>  
   </form>
-
-  <a href="/hack">See More!</a>
+  <div class="betterClear"></div>  
+</div>
 </div>

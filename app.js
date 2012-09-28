@@ -239,11 +239,13 @@ app.post('/hackjam', function(req, res){
     check_image_request_options.method = "HEAD";
 
     var request = http.request(check_image_request_options, function(response) {
+      console.log("in here");
       console.log(response.headers);
       var responseContentType = response.headers["Content-Type"];
       var imagePattern = new RegExp(/image/);
       console.log(responseContentType);
       if (imagePattern.exec(responseContentType)) {
+        console.log("in here farther");
         db.collection('hacks').insert({
           names: req.body.name,
           email: req.body.email,
@@ -308,6 +310,10 @@ app.get('/media/:id', function(req, res){
 
 });
 
+app.get('/hack/:hackathon', function(req, res) {
+  db.collection('hacks').find({'hackathon': req.params.hackathon}).toArray(function(err, hacks) {
+    res.render('hack', {layout: false, hacks: hacks});
+  });
+});
+
 app.listen(process.env.PORT || 8086);
-
-

@@ -418,9 +418,26 @@ input[type="text"]:hover, input[type="password"]:hover {
   box-shadow: 1px 1px 50px rgba(0,0,0,0.5);
 }
 
-.hackform input:focus:invalid, .hack_form textarea:focus:invalid {
-  box-shadow: 0 0 5px #d45252;
-  border-color: #b03535;
+.box input {
+  float: left;
+  clear: both;
+  width: 92%;
+}
+
+.box input:invalid, .box textarea:invalid {
+  background-color: #ffffcc;
+}
+
+.hackForm {
+  width: 70%;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.betterClear {
+  clear: both;
 }
 
 .nameFields {
@@ -428,24 +445,27 @@ input[type="text"]:hover, input[type="password"]:hover {
 }
 
 .removeField {
+  float: left;
   position: relative;
   padding-left: 2px;
   padding-right: 2px;
-  margin-left: 8px;
 }
 
 .addButton {
-  position: absolute;
-  top: 95px;
-  right: 145px;
+  float: left;
+  position: relative;
+}
+
+.addButton, .removeField {
+  line-height: 55px;
+  margin-left: 10px;
 }
 
 .longsmallbtn {
-  margin: 30px auto 15px auto;
+  margin: 30px auto 0px auto;
   height: 40px;
   line-height: 40px;
   -webkit-border-radius: 20px;
-  width: 250px;
   font-size: 20px;
   text-shadow: 0 1px 1px rgba(0,0,0,0.5);
 }
