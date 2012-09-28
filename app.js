@@ -266,6 +266,8 @@ app.get('/media/:id', function(req, res){
 
 });
 
+app.get('/hack', function(req, res) {
+  res.render('hack', {layout: false});
+});
+
 app.listen(process.env.PORT || 8086);
-
-
