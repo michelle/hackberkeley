@@ -234,9 +234,9 @@ app.post('/hackjam', function(req, res){
     email: req.body.email,
     project_name: req.body.project_name,
     screenshot: req.body.screenshot,
-    demo: req.body.demo
+    demo: req.body.demo,
+    hackathon: 'hackjam'
   }, function(error, docs) {
-    console.log(docs)
     res.redirect('/hackjam')
   });
 });
@@ -281,8 +281,10 @@ app.get('/media/:id', function(req, res){
 
 });
 
-app.get('/hack', function(req, res) {
-  res.render('hack', {layout: false});
+app.get('/hack/:hackathon', function(req, res) {
+  db.collection('hacks').find({'hackathon': req.params.hackathon}).toArray(function(err, hacks) {
+    res.render('hack', {layout: false, hacks: hacks});
+  });
 });
 
 app.listen(process.env.PORT || 8086);
