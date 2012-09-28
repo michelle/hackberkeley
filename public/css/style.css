@@ -429,7 +429,7 @@ input[type="text"]:hover, input[type="password"]:hover {
 }
 
 .hackForm {
-  width: 70%;
+  width: 80%;
   margin-top: 40px;
   margin-bottom: 40px;
   margin-left: auto;
@@ -444,46 +444,57 @@ input[type="text"]:hover, input[type="password"]:hover {
   position: relative;
 }
 
-.removeField {
+.removeField, .removeField a {
   float: left;
   position: relative;
   padding-left: 2px;
   padding-right: 2px;
+  color: #890909;
 }
 
-.addButton {
+
+
+.addButton, .addButton a {
   float: left;
   position: relative;
+  color: #9BD000;
 }
 
 .addButton, .removeField {
   line-height: 55px;
   margin-left: 10px;
+  font-weight: bold;
+  font-size: 30px;
+}
+.hackForm a:hover {
+	color: #000;
 }
 
 .longsmallbtn {
-  margin: 30px auto 0px auto;
+  margin: 20px 10px 0px 10px;
+  text-transform: uppercase;
   height: 40px;
   line-height: 40px;
-  -webkit-border-radius: 20px;
   font-size: 20px;
   text-shadow: 0 1px 1px rgba(0,0,0,0.5);
 }
 
-.button:hover {
-  box-shadow: 0 0 0 6px rgba(0,0,0,0.2);
-  color: #fff;
+.longsmallbtn:hover {
+  cursor: pointer;
+  border-bottom: 3px solid #acd437;
+  border-right: 3px solid #acd437;
+  border-top: 3px solid #89b800;
+  border-left: 3px solid #89b800;
 }
 
+
 .greenbtn {
-  border: 1px solid #8ad815;
+  border-bottom: 3px solid #89b800;
+  border-right: 3px solid #89b800;
+  border-left: 3px solid #acd437;
+  border-top: 3px solid #acd437;
   background: #9BD000; /* Old browsers */
-  background: -moz-linear-gradient(top, #9BD000 1%, #64C878 100%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#9BD000), color-stop(100%,#64C878)); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top, #9BD000 1%,#64C878 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top, #9BD000 1%,#64C878 100%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top, #9BD000 1%,#64C878 100%); /* IE10+ */
-  background: linear-gradient(top, #9BD000 1%,#64C878 100%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9BD000', endColorstr='#64C878',GradientType=0 ); /* IE6-9 */
   color: #fff;
+  text-shadow: 0px 2px 0px #89b800;
+  height: 50px;
 }

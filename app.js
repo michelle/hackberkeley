@@ -235,7 +235,8 @@ app.post('/hackjam', function(req, res){
     project_name: req.body.project_name,
     screenshot: req.body.screenshot,
     demo: req.body.demo,
-    hackathon: 'hackjam'
+    hackathon: 'hackjam',
+    date: new Date()
   }, function(error, docs) {
     res.redirect('/hackjam')
   });
@@ -283,7 +284,11 @@ app.get('/media/:id', function(req, res){
 
 app.get('/hack/:hackathon', function(req, res) {
   db.collection('hacks').find({'hackathon': req.params.hackathon}).toArray(function(err, hacks) {
-    res.render('hack', {layout: false, hacks: hacks});
+    if (hacks.length == 0) {
+      res.redirect('/');
+    } else {
+      res.render('hack', {layout: false, hacks: hacks});
+    }
   });
 });
 

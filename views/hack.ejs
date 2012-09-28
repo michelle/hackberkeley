@@ -4,37 +4,36 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
 <script src="/js/jquery.isotope.min.js"></script>
 <script src="/js/jquery.imagesloaded.min.js"></script>
-<style>
-body, html {
-background-color: #f3f3f3;
-}
-#container {
-position: relative;
-margin: 0 auto;
-width: 80%;
-overflow: hidden;
-}
-.photo img {
-max-width: 300px;
-margin: 10px;
-border: 10px solid #fff;
-}
-#hackathon {
-font-family: helvetica, arial;
-width: 80%;
-margin: 100px auto 0 auto;
-font-size: 60px;
-color: #ccc;
-}
-</style>
+<script src="/js/jquery.slabtext.min.js"></script>
+<link href="/css/stylehack.css" rel="stylesheet" type="text/css">
+
+<script>
+$(window).load(function() {
+  $(".redphoto img, .photo img").css({ "width": $("#container").width()/3.4 });
+  $(".redphoto, .photo").css({ "width": $("#container").width()/3.4 });
+});
+</script>
 </head>
 <body>
 <% if (hacks) { %>
-<div id="hackathon"><%=hacks[0].hackathon%></div>
+<div id="hackathon" class="isotope"><span id="hackathon">H@B <%=hacks[0].hackathon%></span></div>
 <% } %>
-<div id="container" class="photos isotope">
+<div id="container">
 <% for (var i = 0; i < hacks.length; i += 1) { hack = hacks[i] %>
-<div class="photo"><img src="<%=hack.screenshot%>"><div class="title"><%=hack.project_name%></div></div>
+<% if (hack.demo) { %>
+  <a href="<%=hack.demo%>"><div class="photo redphoto">
+<% } else { %>
+  <div class="photo">
+<% } %><img src="<%=hack.screenshot%>"><div class="title"><%=hack.project_name%></div>
+<div class="names">
+<% for (var j = 0; j < hack.names.length; j += 1) { name = hack.names[j]; %>
+  <div class="name"><%=name%></div>
+<% } %>
+</div>
+</div>
+<% if (hack.demo) { %>
+  </a>
+<% } %>
 <% } %>
 </div>
 <script>
@@ -44,6 +43,11 @@ $(window).load(function() {
     $container.isotope({
       itemSelector : '.photo'
     });
+  });
+
+  $('#hackathon').slabText({
+    // Don't slabtext the headers if the viewport is under 380px
+    "viewportBreakpoint":380
   });
 });
 </script>
