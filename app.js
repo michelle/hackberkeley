@@ -231,12 +231,16 @@ app.set('views', __dirname + '/views');
 
 // For submitting hacks
 app.post('/hackjam', function(req, res){
+  url = req.body.demo;
+  if (url.split(':').length < 2) {
+    url = 'http://' + url	
+  }
   db.collection('hacks').insert({
     names: req.body.name,
     email: req.body.email,
     project_name: req.body.project_name,
     screenshot: req.body.screenshot,
-    demo: req.body.demo,
+    demo: url,
     hackathon: 'hackjam',
     date: new Date()
   }, function(error, docs) {

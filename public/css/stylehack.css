@@ -29,11 +29,13 @@ overflow: hidden;
 
 .redphoto, .photo {
 background-color: #5d6c2b;
+color: #97a043;
 padding: 1%;
-margin: 10px 1%;
+margin: 15px 1%;
 }
 .redphoto {
 background-color: #4d2736;
+color: #a54b55;
 }
 #hackathon {
 width: 80%;
@@ -44,7 +46,6 @@ text-shadow: 5px 5px 0px #5d6c2b;
 .title {
 font-size: 50px;
 height: 50px;
-color: #97a043;
 padding: 5px 0px 0 0;
 letter-spacing: 2px;
 text-transform: uppercase;
@@ -54,7 +55,6 @@ overflow: hidden;
 text-overflow: ellipsis;
 }
 .name {
-color: #97a043;
 letter-spacing: 1px;
 font-size: 18px;
 }
