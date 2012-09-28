@@ -1,7 +1,9 @@
 var express = require('express');
 var fs = require('fs');
 var app =  express.createServer();
+var url = require('url');
 var https = require('https');
+var http = require('http');
 var mongo = require('mongoskin');
 var db = mongo.db('heroku:hackers@staff.mongohq.com:10065/app1491090');
 var months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
@@ -229,16 +231,41 @@ app.set('views', __dirname + '/views');
 
 // For submitting hacks
 app.post('/hackjam', function(req, res){
-  db.collection('hacks').insert({
-    names: req.body.name,
-    email: req.body.email,
-    project_name: req.body.project_name,
-    screenshot: req.body.screenshot,
-    demo: req.body.demo
-  }, function(error, docs) {
-    console.log(docs)
-    res.redirect('/hackjam')
-  });
+  var screenshot_url = req.body.screenshot;
+  console.log("hackjaming");
+  if (screenshot_url) {
+    console.log(screenshot_url);
+    var check_image_request_options = url.parse(screenshot_url);
+    check_image_request_options.method = "HEAD";
+
+    var request = http.request(check_image_request_options, function(response) {
+      console.log(response.headers);
+      var responseContentType = response.headers["Content-Type"];
+      var imagePattern = new RegExp(/image/);
+      console.log(responseContentType);
+      if (imagePattern.exec(responseContentType)) {
+        db.collection('hacks').insert({
+          names: req.body.name,
+          email: req.body.email,
+          project_name: req.body.project_name,
+          screenshot: req.body.screenshot,
+          demo: req.body.demo
+        }, function (err) {
+          if (err) {
+            console.log("Someone made a no-no");
+          }
+        });
+      } else {
+        console.log("Someone made a no-no");
+      }
+    });
+    request.on("error", function (err) {
+      console.log("Someone made a no-no");
+    });
+  } else {
+    console.log("Someone made a no-no");
+  }
+  res.redirect('/hackjam');
 });
 
 app.get('/', function(req, res){
