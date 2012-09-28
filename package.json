@@ -10,10 +10,14 @@
   "engines": {
     "node": "~v0.6.11"
   },
-  "dependencies":{
-    "express":"2.5.11",
-    "ejs":"",
-    "mongoskin": ""
+  "dependencies": {
+    "express": "2.5.11",
+    "ejs": "",
+    "mongoskin": "*"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "subdomain": "hackberkeley",
+  "scripts": {
+    "start": "app.js"
+  }
 }
