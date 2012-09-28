@@ -217,9 +217,7 @@ function refreshCache () {
   setTimeout(refreshCache, 60000);
 }
 
-
 refreshCache();
-
 
 // Initialize main server
 app.use(express.bodyParser());
@@ -229,6 +227,19 @@ app.use(express.static(__dirname + '/public'));
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
 
+// For submitting hacks
+app.post('/hackjam', function(req, res){
+  db.collection('hacks').insert({
+    names: req.body.name,
+    email: req.body.email,
+    project_name: req.body.project_name,
+    screenshot: req.body.screenshot,
+    demo: req.body.demo
+  }, function(error, docs) {
+    console.log(docs)
+    res.redirect('/hackjam')
+  });
+});
 
 app.get('/', function(req, res){
   res.render('home', {page: 'home', events: events});
@@ -253,6 +264,10 @@ app.get('/people', function(req, res){
 
 app.get('/media', function(req, res){
   res.render('media', {page: 'media', albums: albums});
+});
+
+app.get('/hackjam', function(req, res){
+  res.render('hackjam', {page: 'hackjam'});
 });
 
 app.get('/media/:id', function(req, res){

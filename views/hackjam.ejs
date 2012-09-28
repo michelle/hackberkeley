@@ -1,0 +1,31 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8">
+	$(document).ready(function(){
+		$("#addField").click( function() {
+			$("#nameFields").append('<input type="text" name="name[]" required placeholder="Name"><a href="#" class="removeField">-</a><br/>');
+		});
+		$(".hackform").on("click", ".removeField", function( ) {
+      console.log(this);
+			$(this).prev().remove();
+			$(this).next().remove();
+      $(this).remove();
+      return false;
+		});
+	});
+</script>
+
+<div class="formmiddle">
+  <form class="hackform" action="hackjam" method="post">
+    <input type="text" name="project_name" required placeholder="Project Name"><br> 
+    <div id="nameFields">
+      <input type="text" name="name[]" required placeholder="Name">
+    </div>
+    <div class="addButton"><a href="#" onclick="return false;" id="addField">+</a></div>
+    <input type="text" name="email" required placeholder="Email"><br>
+    <input type="text" name="screenshot" required placeholder="Screenshot URL"><br>
+    <input type="text" name="demo" placeholder="Demo/Repo"><br>
+    <input class="button longsmallbtn greenbtn" type="submit" value="Submit">
+  </form>
+
+  <a href="/hack">See More!</a>
+</div>
