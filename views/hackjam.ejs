@@ -11,6 +11,21 @@
       $(this).remove();
       return false;
 		});
+    $('#submit-form').click(function() {
+      $(".error").hide();
+      var hasError = false;
+      var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+      var emailaddressVal = $("#email-form").val();
+      if(emailaddressVal == '') {
+        $("#email-form").after('<span class="error">Please enter your email address.</span>');
+        hasError = true;
+      }
+      else if(!emailReg.test(emailaddressVal)) {
+        $("#email-form").after('<span class="error">Please enter a valid email address.</span>');
+        hasError = true;
+      }
+      if(hasError) { return false; }
+    });
 	});
 </script>
 
@@ -26,10 +41,10 @@
     </div>
   </div>
   <div class="hackFormColumn2">
-    <input type="text" name="email" required placeholder="Email"><br>
-    <input type="text" name="screenshot" required placeholder="Screenshot URL"><br>
+    <input type="text" name="email" required placeholder="Email" id="email-form"><br>
+    <input type="text" name="screenshot" required placeholder="Screenshot URL" id="url-form"><br>
     <input type="text" name="demo" placeholder="Demo/Repo"><br>
-    <input class="button longsmallbtn greenbtn" type="submit" value="Submit">
+    <input class="button longsmallbtn greenbtn" id="submit-form" type="submit" value="Submit">
   </div>
   <div class="betterClear"></div>  
   </form>
