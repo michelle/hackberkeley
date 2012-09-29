@@ -5,7 +5,7 @@ var url = require('url');
 var https = require('https');
 var http = require('http');
 var mongo = require('mongoskin');
-var db = mongo.db('heroku:hackers@staff.mongohq.com:10065/app1491090');
+var db = mongo.db('mongodb://hacker:berkeley@alex.mongohq.com:10018/hackberkeley');
 var months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 
 var projects;
