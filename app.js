@@ -241,10 +241,10 @@ app.post('/hackjam', function(req, res){
     project_name: req.body.project_name,
     screenshot: req.body.screenshot,
     demo: url,
-    hackathon: 'hackjam',
+    hackathon: 'hackjam3',
     date: new Date()
   }, function(error, docs) {
-    res.redirect('/hack/hackjam')
+    res.redirect('/hack/hackjam3')
   });
   /*var screenshot_url = req.body.screenshot;
   console.log("hackjaming");
