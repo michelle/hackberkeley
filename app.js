@@ -232,7 +232,7 @@ app.set('views', __dirname + '/views');
 // For submitting hacks
 app.post('/hackjam', function(req, res){
   url = req.body.demo;
-  if (url.split(':').length < 2) {
+  if (url && url.split(':').length < 2) {
     url = 'http://' + url	
   }
   db.collection('hacks').insert({
