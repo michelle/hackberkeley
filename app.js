@@ -230,7 +230,7 @@ app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
 
 // For submitting hacks
-app.post('/hackjam', function(req, res){
+app.post('/chain', function(req, res){
   url = req.body.demo;
   if (url && url.split(':').length < 2) {
     url = 'http://' + url	
@@ -241,48 +241,11 @@ app.post('/hackjam', function(req, res){
     project_name: req.body.project_name,
     screenshot: req.body.screenshot,
     demo: url,
-    hackathon: 'hackjam3',
+    hackathon: 'chain reaction',
     date: new Date()
   }, function(error, docs) {
-    res.redirect('/hack/hackjam3')
+    res.redirect('/hack/chain reaction')
   });
-  /*var screenshot_url = req.body.screenshot;
-  console.log("hackjaming");
-  if (screenshot_url) {
-    console.log(screenshot_url);
-    var check_image_request_options = url.parse(screenshot_url);
-    check_image_request_options.method = "HEAD";
-
-    var request = http.request(check_image_request_options, function(response) {
-      console.log("in here");
-      console.log(response.headers);
-      var responseContentType = response.headers["Content-Type"];
-      var imagePattern = new RegExp(/image/);
-      console.log(responseContentType);
-      if (imagePattern.exec(responseContentType)) {
-        console.log("in here farther");
-        db.collection('hacks').insert({
-          names: req.body.name,
-          email: req.body.email,
-          project_name: req.body.project_name,
-          screenshot: req.body.screenshot,
-          demo: req.body.demo
-        }, function (err) {
-          if (err) {
-            console.log("Someone made a no-no");
-          }
-        });
-      } else {
-        console.log("Someone made a no-no");
-      }
-    });
-    request.on("error", function (err) {
-      console.log("Someone made a no-no");
-    });
-  } else {
-    console.log("Someone made a no-no");
-  }
-  res.redirect('/hackjam');*/
 });
 
 app.get('/', function(req, res){
@@ -310,8 +273,8 @@ app.get('/media', function(req, res){
   res.render('media', {page: 'media', albums: albums});
 });
 
-app.get('/hackjam', function(req, res){
-  res.render('hackjam', {page: 'hackjam'});
+app.get('/chain', function(req, res){
+  res.render('hackjam', {page: 'chain'});
 });
 
 app.get('/media/:id', function(req, res){
