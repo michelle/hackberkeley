@@ -11,28 +11,13 @@
       $(this).remove();
       return false;
 		});
-    $('#submit-form').click(function() {
-      $(".error").hide();
-      var hasError = false;
-      var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
-      var emailaddressVal = $("#email-form").val();
-      if(emailaddressVal == '') {
-        $("#email-form").after('<span class="error">Please enter your email address.</span>');
-        hasError = true;
-      }
-      else if(!emailReg.test(emailaddressVal)) {
-        $("#email-form").after('<span class="error">Please enter a valid email address.</span>');
-        hasError = true;
-      }
-      if(hasError) { return false; }
-    });
 	});
 </script>
 
 <div class="wrap">
   <h1>Submit your Hack!</h1>
   <div class="box">
-  <form class="hackForm" action="chain" method="post">
+  <form class="hackForm" action="/chain" method="post">
   <div class="hackFormColumn1">
     <input type="text" name="project_name" required placeholder="Project Name"><br> 
     <div id="nameFields">
