@@ -230,11 +230,7 @@ app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
 
 // For submitting hacks
-<<<<<<< HEAD
 app.post('/submit', function(req, res){
-=======
-app.post('/chain', function(req, res){
->>>>>>> 5c0797aa417c70ca410347a5da73de4c41435a09
   url = req.body.demo;
   if (url && url.split(':').length < 2) {
     url = 'http://' + url	
@@ -246,17 +242,10 @@ app.post('/chain', function(req, res){
     project_name: req.body.project_name,
     screenshot: req.body.screenshot,
     demo: url,
-<<<<<<< HEAD
     hackathon: 'hack',
     date: new Date()
   }, function(error, docs) {
     res.redirect('/hack/hack')
-=======
-    hackathon: 'chain reaction',
-    date: new Date()
-  }, function(error, docs) {
-    res.redirect('/hack/chain reaction')
->>>>>>> 5c0797aa417c70ca410347a5da73de4c41435a09
   });
 });
 
@@ -285,13 +274,8 @@ app.get('/media', function(req, res){
   res.render('media', {page: 'media', albums: albums});
 });
 
-<<<<<<< HEAD
 app.get('/submit', function(req, res){
   res.render('hackjam', {page: 'hack'});
-=======
-app.get('/chain', function(req, res){
-  res.render('hackjam', {page: 'chain'});
->>>>>>> 5c0797aa417c70ca410347a5da73de4c41435a09
 });
 
 app.get('/media/:id', function(req, res){

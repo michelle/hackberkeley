@@ -2,15 +2,16 @@
 <script type="text/javascript" charset="utf-8">
 	$(document).ready(function(){
 		$("#addField").click( function() {
-			$("#nameFields").append('<input type="text" name="name[]" required placeholder="Name"><br/>');
-      $("#nameFields").append('<input type="text" name="email[]" required placeholder="Email"><br>');
-      $("#nameFields").append('<span class="contact-me"><input type="checkbox" name="contact[]">Make my email available to companies.</span><br>');
-      $("#nameFields").append('<input type="text" name="year[]" required placeholder="Year"><a href="#" class="removeField">-</a><br>');
+      $("#nameFields").append('<span class="form-line"><span class="form-text">Your Name</span><input type="text" name="name[]" required></span><br>');
+			$("#nameFields").append('<span class="form-line"><span class="form-text">Your Grad Year</span><input type="text" name="year[]" required></span>');
+      $("#nameFields").append('<span class="form-line"><span class="form-text">Your Email</span><input type="email" name="email[]" required></span><br>');
+      $("#nameFields").append('<span class="form-line"><span class="form-text-check">Make my email available to companies.</span><input type="checkbox" name="contact[]"></span><br>');
+      $("#nameFields").append('<a href="#" class="removeField">Remove Above Team Member</a><br>');
 		});
 		$(".hackForm").on("click", ".removeField", function( ) {
       console.log(this);
 			$(this).prev().remove();
-			$(this).prev().remove();
+      $(this).prev().remove();
       $(this).prev().remove();
       $(this).prev().remove();
 			$(this).prev().remove();
@@ -27,19 +28,22 @@
   <div class="box">
   <form class="hackForm" action="/submit" method="post">
   <div class="hackFormColumn1">
-    <input type="text" name="project_name" required placeholder="Project Name"><br> 
+    <h1>Project Info</h1>
+    <span class="form-line"><span class="form-text">Project Name</span><input type="text" name="project_name" required></span><br> 
+    <span class="form-line"><span class="form-text">Screenshot URL</span><input type="text" name="screenshot" required id="url-form"></span><br>
+    <span class="form-line"><span class="form-text">Demo or Repo URL</span><input type="text" name="demo"></span><br>
+    <div class="separation"></div>
+    <h1>Team Member Info</h1>
     <div id="nameFields">
-      <input type="text" name="name[]" required placeholder="Name"><br>
-      <input type="text" name="email[]" required placeholder="Email"><br>
-      <span class="contact-me"><input type="checkbox" name="contact[]">Make my email available to companies.</span><br>
-      <input type="text" name="year[]" required placeholder="Year">
-      <div class="addButton"><a href="#" onclick="return false;" id="addField">+</a></div>
+      <span class="form-line"><span class="form-text">Your Name</span><input type="text" name="name[]" required></span><br>
+      <span class="form-line"><span class="form-text">Your Grad Year</span><input type="text" name="year[]" required></span>
+      <span class="form-line"><span class="form-text">Your Email</span><input type="email" name="email[]" required></span><br>
+      <span class="form-line"><span class="form-text-check">Make my email available to companies.</span><input type="checkbox" name="contact[]"></span><br>
+      <span class="form-line"><div class="addButton"><a href="#" onclick="return false;" id="addField">Add Team Member</a></div></span>
     </div>
   </div>
   <div class="hackFormColumn2">
-    <input type="text" name="screenshot" required placeholder="Screenshot URL" id="url-form"><br>
-    <input type="text" name="demo" placeholder="Demo/Repo"><br>
-    <input class="button longsmallbtn greenbtn submit-hack" id="submit-form" type="submit" value="Submit">
+    <input class="button longsmallbtn greenbtn submit-hack" id="submit-form" type="submit" value="Submit Hack">
   </div>
   <div class="betterClear"></div>  
   </form>

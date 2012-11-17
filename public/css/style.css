@@ -396,7 +396,7 @@ h4 {
   text-align: center;
 }
 
-input[type="text"], input[type="password"] {
+input[type="text"], input[type="password"], input[type="email"] {
   outline: 0;
   border: 1px solid #ccc;
   border-radius: 1px;
@@ -418,14 +418,48 @@ input[type="text"]:hover, input[type="password"]:hover {
   box-shadow: 1px 1px 50px rgba(0,0,0,0.5);
 }
 
-.box input[type="text"], .box input[type="submit"]{
+.separation {
+  clear: both;
+  border-top: 1px;
+  width: 100px;
+  height: 30px;
+}
+
+.form-line {
+  width: 92%;
   float: left;
   clear: both;
+}
+
+.form-text {
+  width: 40%;
+  float: left;
+  clear: both;
+  padding-top: 12px;
+  padding-right: 35px;
+}
+
+.form-text-check {
+  //width: 60%;
+  float: left;
+  clear: both;
+  padding-right: 10px;
+}
+
+.box input[type="text"], .box input[type="submit"], .box input[type="email"]{
+  //float: left;
+  clear: both;
+  width: 50%;
+}
+
+.box input[type="submit"] {
   width: 92%;
+  clear: both;
+  float: left;
 }
 
 .box input[type="checkbox"] {
-  float: left;
+  //float: left;
   clear: both;
   height: 25px;
   margin-right: 10px;
@@ -473,7 +507,7 @@ input[type="text"]:hover, input[type="password"]:hover {
 
 .addButton, .removeField {
   line-height: 55px;
-  margin-left: 10px;
+  //margin-left: 10px;
   font-weight: bold;
   font-size: 30px;
 }
@@ -482,7 +516,7 @@ input[type="text"]:hover, input[type="password"]:hover {
 }
 
 .longsmallbtn {
-  margin: 20px 10px 0px 10px;
+  margin: 20px 10px 0px 0px;
   text-transform: uppercase;
   height: 40px;
   line-height: 40px;
