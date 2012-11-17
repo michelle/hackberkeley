@@ -230,7 +230,7 @@ app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
 
 // For submitting hacks
-app.post('/chain', function(req, res){
+app.post('/submit', function(req, res){
   url = req.body.demo;
   if (url && url.split(':').length < 2) {
     url = 'http://' + url	
@@ -238,13 +238,14 @@ app.post('/chain', function(req, res){
   db.collection('hacks').insert({
     names: req.body.name,
     email: req.body.email,
+    contact: req.body.contact,
     project_name: req.body.project_name,
     screenshot: req.body.screenshot,
     demo: url,
-    hackathon: 'chain reaction',
+    hackathon: 'hack',
     date: new Date()
   }, function(error, docs) {
-    res.redirect('/hack/chain reaction')
+    res.redirect('/hack/hack')
   });
 });
 
@@ -273,8 +274,8 @@ app.get('/media', function(req, res){
   res.render('media', {page: 'media', albums: albums});
 });
 
-app.get('/chain', function(req, res){
-  res.render('hackjam', {page: 'chain'});
+app.get('/submit', function(req, res){
+  res.render('hackjam', {page: 'hack'});
 });
 
 app.get('/media/:id', function(req, res){

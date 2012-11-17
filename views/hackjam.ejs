@@ -2,12 +2,20 @@
 <script type="text/javascript" charset="utf-8">
 	$(document).ready(function(){
 		$("#addField").click( function() {
-			$("#nameFields").append('<input type="text" name="name[]" required placeholder="Name and Email"><a href="#" class="removeField">-</a><br/>');
+			$("#nameFields").append('<input type="text" name="name[]" required placeholder="Name"><br/>');
+      $("#nameFields").append('<input type="text" name="email[]" required placeholder="Email"><br>');
+      $("#nameFields").append('<span class="contact-me"><input type="checkbox" name="contact[]">Make my email available to companies.</span><br>');
+      $("#nameFields").append('<input type="text" name="year[]" required placeholder="Year"><a href="#" class="removeField">-</a><br>');
 		});
 		$(".hackForm").on("click", ".removeField", function( ) {
       console.log(this);
 			$(this).prev().remove();
-			$(this).next().remove();
+			$(this).prev().remove();
+      $(this).prev().remove();
+      $(this).prev().remove();
+			$(this).prev().remove();
+			$(this).prev().remove();
+			$(this).prev().remove();      
       $(this).remove();
       return false;
 		});
@@ -17,18 +25,21 @@
 <div class="wrap">
   <h1>Submit your Hack!</h1>
   <div class="box">
-  <form class="hackForm" action="/chain" method="post">
+  <form class="hackForm" action="/submit" method="post">
   <div class="hackFormColumn1">
     <input type="text" name="project_name" required placeholder="Project Name"><br> 
     <div id="nameFields">
-      <input type="text" name="name[]" required placeholder="Name and Email">
+      <input type="text" name="name[]" required placeholder="Name"><br>
+      <input type="text" name="email[]" required placeholder="Email"><br>
+      <span class="contact-me"><input type="checkbox" name="contact[]">Make my email available to companies.</span><br>
+      <input type="text" name="year[]" required placeholder="Year">
       <div class="addButton"><a href="#" onclick="return false;" id="addField">+</a></div>
     </div>
   </div>
   <div class="hackFormColumn2">
     <input type="text" name="screenshot" required placeholder="Screenshot URL" id="url-form"><br>
     <input type="text" name="demo" placeholder="Demo/Repo"><br>
-    <input class="button longsmallbtn greenbtn" id="submit-form" type="submit" value="Submit">
+    <input class="button longsmallbtn greenbtn submit-hack" id="submit-form" type="submit" value="Submit">
   </div>
   <div class="betterClear"></div>  
   </form>

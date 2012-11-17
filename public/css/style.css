@@ -418,10 +418,21 @@ input[type="text"]:hover, input[type="password"]:hover {
   box-shadow: 1px 1px 50px rgba(0,0,0,0.5);
 }
 
-.box input {
+.box input[type="text"], .box input[type="submit"]{
   float: left;
   clear: both;
   width: 92%;
+}
+
+.box input[type="checkbox"] {
+  float: left;
+  clear: both;
+  height: 25px;
+  margin-right: 10px;
+}
+
+.contact-me {
+  line-height: 25px;
 }
 
 .box input:invalid, .box textarea:invalid {
