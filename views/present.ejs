@@ -1,0 +1,36 @@
+<script>
+$(document).ready(function() {
+	presentations = <%- JSON.stringify(presentations) %>;
+	
+	secretshuffle = function() {
+
+		var rand = Math.floor(Math.random() * presentations.length);
+		$('#victim').text(presentations[rand].project_name);
+		presentations.splice(rand, 1);
+	}
+
+
+});
+</script>
+
+
+
+<style>
+
+.present {
+	margin-top: 50px;
+	padding: 10px;
+	}
+
+#victim{
+	font-size: 75px;
+	text-align: center;
+	}
+</style>
+<div class="wrap">
+<div class="box present">
+<h1 id="victim"></h1>
+</div>
+</div>
+
+
