@@ -289,6 +289,12 @@ app.get('/media/:id', function(req, res){
 
 });
 
+app.get('/present', function(req, res) {
+  db.collection('hacks').find({ hackathon: 'hack' }).toArray(function(err, presentations) {
+    res.render('present', { page: 'media', presentations: presentations.slice(9) });
+  });
+});
+
 app.get('/hack/:hackathon', function(req, res) {
   db.collection('hacks').find({'hackathon': req.params.hackathon}).toArray(function(err, hacks) {
     if (hacks.length == 0) {
