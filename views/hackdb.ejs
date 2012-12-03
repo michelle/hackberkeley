@@ -1,0 +1,70 @@
+<html>
+
+<head>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js"></script>
+  <script src="/js/jquery.isotope.min.js"></script>
+  <script src="/js/jquery.imagesloaded.min.js"></script>
+  <script src="/js/jquery.slabtext.min.js"></script>
+  <link href="/css/hackdb.css" rel="stylesheet" type="text/css">
+  
+  <script>
+    $(window).load(function() {
+      $(".redphoto img, .photo img").css({ "width": $("#container").width()/3.4 });
+      $(".redphoto, .photo").css({ "width": $("#container").width()/3.4 });
+    });
+  </script>
+</head>
+
+<body>
+  <!--
+  <div class="wrap">
+  <div id="title">
+    <h1>HACKS</h1> 
+    <div class="box">
+      yo dawg
+    </div>
+  </div>
+  </div>
+  --!>
+  <script>
+    function imgerr(img) {
+      img.onerror="";
+      img.src="http://placekitten.com/g/200/300";
+      return true;
+    };
+  </script>
+  <div id="container">
+    <% for (var i = 0; i < hacks.length; i += 1) { hack = hacks[i] %>
+      <% if (hack.demo) { %>
+        <a href="<%=hack.demo%>">
+        <div class="photo redphoto">
+      <% } else { %>
+        <div class="photo">
+      <% } %>
+        <img src="<%=hack.screenshot%>" onerror="imgerr(this)">
+        <div class="title"><%=hack.project_name%></div>
+        <div class="names">
+          <% for (var j = 0; j < hack.names.length; j += 1) { name = hack.names[j]; %>
+            <div class="name"><%=name%></div>
+          <% } %>
+        </div>
+      </div>
+      <% if (hack.demo) { %>
+        </a>
+      <% } %>
+    <% } %>
+  </div>
+
+  <script>
+  $(window).load(function() {
+    var $container = $('#container');        
+    $container.imagesLoaded(function(){
+      $container.isotope({
+        itemSelector : '.photo'
+      });
+    });
+  });
+  </script>
+</body>
+
+</html>
