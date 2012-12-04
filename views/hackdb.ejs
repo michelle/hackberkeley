@@ -29,7 +29,9 @@
   <script>
     function imgerr(img) {
       img.onerror="";
-      img.src="http://placekitten.com/g/200/300";
+      var a = Math.floor(Math.random() * 300 + 150);
+      var b = Math.floor(Math.random() * 300 + 150);
+      img.src="http://placekitten.com/g/"+a+"/"+b;
       return true;
     };
   </script>
