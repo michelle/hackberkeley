@@ -297,12 +297,22 @@ app.get('/present', function(req, res) {
 
 app.get('/hack/:hackathon', function(req, res) {
   db.collection('hacks').find({'hackathon': req.params.hackathon}).toArray(function(err, hacks) {
-    if (hacks.length == 0) {
+    if (hacks.length == 0 || err) {
       res.redirect('/');
     } else {
       res.render('hack', {layout: false, hacks: hacks});
     }
   });
+});
+
+app.get('/hacks', function(req, res) {
+	db.collection('hacks').find().toArray(function(err, hacks) {
+		if (hacks.length == 0 || err) {
+		  res.redirect('/');
+		} else {
+		  res.render('hackdb', {page:'hacks', layout: true, hacks: hacks});
+		}
+	});
 });
 
 app.listen(process.env.PORT || 8086);
