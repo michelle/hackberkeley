@@ -305,13 +305,15 @@ app.get('/hack/:hackathon', function(req, res) {
 });
 
 app.get('/hacks', function(req, res) {
-	db.collection('hacks').find().toArray(function(err, hacks) {
+	//Hacks page is now on habitat.hackersatberkeley.com/projects
+	/*db.collection('hacks').find().toArray(function(err, hacks) {
 		if (hacks.length == 0 || err) {
 		  res.redirect('/');
 		} else {
 		  res.render('hackdb', {page:'hacks', layout: true, hacks: hacks});
 		}
-	});
+	});*/
+	res.redirect('http://habitat.hackersatberkeley.com/projects')
 });
 
 app.listen(process.env.PORT || 8086);
