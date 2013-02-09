@@ -158,9 +158,8 @@ function refreshCache () {
     res.on('end', function(){
       try {
         var ts = (new Date()).valueOf();
-        events = {new: [], old: []};
+        events = {'new': [], 'old': []};
         data = JSON.parse(body).data;
-        console.log(data);
         
         var event, date;
         for(var i in data) {
@@ -197,14 +196,14 @@ function refreshCache () {
                   event.pic_url = "/images/events/bighack.png";
                 }
                 if(event.dateObj.valueOf() > ts) {
-                  events.new.push(event);
+                  events['new'].push(event);
                 } else {
-                  events.old.push(event);
+                  events['old'].push(event);
                 }
 
                 // sorts the events every time. this may be ineffecient depending on what the sorting algorithm is and could be refactored
-                events.new.sort(asorter);
-                events.old.sort(dsorter);
+                events['new'].sort(asorter);
+                events['old'].sort(dsorter);
               });
             });
 
