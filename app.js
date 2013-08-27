@@ -231,7 +231,7 @@ function addMissingEvent(events) {
     dateObj: date,
     date: months[date.getMonth()] + " " + date.getDate(),
     time: formatDate(date),
-    description: "If you have any questions about Unix, classes, hacking, or are just new to Computer Science, this is the perfect opportunity to get your questions answered.",
+    description: "If you have any questions about Unix, classes, hacking, or are just new to Computer Science, this is the perfect opportunity to get your questions answered.Come hang out with strangers (soon to be friends), and get your Linux/Vim/Powershell/other program set up so you can hit the ground running. We’ve got a vast array (pun intended) of workshops coming your way this semester, both for beginners and ninjas/divas alike.",
     pic_url: "https://sphotos-b-lax.xx.fbcdn.net/hphotos-prn1/561925_10201250440574416_1488953319_n.jpg"
   };
 
