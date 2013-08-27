@@ -80,7 +80,6 @@ function getPhotos(manyalbums) {
         });
         res.on('end', function() {
           try {
-            
             var data = JSON.parse(body);
             var pics = data['data'];
             a['icon'] = pics[0]['picture'];
