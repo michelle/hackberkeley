@@ -167,7 +167,6 @@ function refreshCache () {
         for(var i in data) {
           event = data[i];
           // assumes that title contains @ iff it is an H@B event
-          console.log(event.name);
           if( event.name.indexOf("@") != -1 && typeof(event.name) !== "undefined") {
             // gets a more detailed event object
             https.get({
@@ -224,15 +223,17 @@ function refreshCache () {
 // Add the missing H@B office hour event
 function addMissingEvent(events) {
   var ts = (new Date()).valueOf();
-  var event = {};
   var date = new Date('2013-08-27T18:00:00-0700');
 
-  event.name = "H@B \"Office Hours && Finishathon\"";
-  event.dateObj = date;
-  event.date = months[date.getMonth()] + " " + date.getDate();
-  event.time = formatDate(date);
-  event.description = "If you have any questions about Unix, classes, hacking, or are just new to Computer Science, this is the perfect opportunity to get your questions answered.";
-  event.pic_url = "https://sphotos-b-lax.xx.fbcdn.net/hphotos-prn1/561925_10201250440574416_1488953319_n.jpg";
+  var event = {
+    name: "H@B \"Office Hours && Finishathon\"",
+    id: "577658228959046",
+    dateObj: date,
+    date: months[date.getMonth()] + " " + date.getDate(),
+    time: formatDate(date),
+    description: "If you have any questions about Unix, classes, hacking, or are just new to Computer Science, this is the perfect opportunity to get your questions answered.",
+    pic_url: "https://sphotos-b-lax.xx.fbcdn.net/hphotos-prn1/561925_10201250440574416_1488953319_n.jpg"
+  };
 
   if(event.dateObj.valueOf() > ts) {
     events['new'].push(event);
