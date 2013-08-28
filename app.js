@@ -166,7 +166,6 @@ function refreshCache () {
         var event, date;
         for(var i in data) {
           event = data[i];
-          console.log(event);
           // assumes that title contains @ iff it is an H@B event
           if( event.name.indexOf("@") != -1 && typeof(event.name) !== "undefined") {
             // gets a more detailed event object
