@@ -80,7 +80,6 @@ function getPhotos(manyalbums) {
         });
         res.on('end', function() {
           try {
-            
             var data = JSON.parse(body);
             var pics = data['data'];
             a['icon'] = pics[0]['picture'];
@@ -158,9 +157,11 @@ function refreshCache () {
     res.on('end', function(){
       try {
         var ts = (new Date()).valueOf();
-        events = {new: [], old: []};
+        events = {'new': [], 'old': []};
         data = JSON.parse(body).data;
-        console.log(data);
+
+        // This is a monkey patch for a fb bug
+        addMissingEvent(events);
         
         var event, date;
         for(var i in data) {
@@ -197,14 +198,14 @@ function refreshCache () {
                   event.pic_url = "/images/events/bighack.png";
                 }
                 if(event.dateObj.valueOf() > ts) {
-                  events.new.push(event);
+                  events['new'].push(event);
                 } else {
-                  events.old.push(event);
+                  events['old'].push(event);
                 }
 
                 // sorts the events every time. this may be ineffecient depending on what the sorting algorithm is and could be refactored
-                events.new.sort(asorter);
-                events.old.sort(dsorter);
+                events['new'].sort(asorter);
+                events['old'].sort(dsorter);
               });
             });
 
@@ -217,6 +218,31 @@ function refreshCache () {
   });
 
   setTimeout(refreshCache, 60000);
+}
+
+// Add the missing H@B office hour event
+function addMissingEvent(events) {
+  var ts = (new Date()).valueOf();
+  var start_time = '2013-08-27T18:00:00-0700'
+  var date = new Date(start_time);
+
+  var event = {
+    name: "H@B \"Office Hours && Finishathon\"",
+    id: "577658228959046",
+    dateObj: date,
+    date: months[date.getMonth()] + " " + date.getDate(),
+    time: formatDate(date),
+    start_time: start_time,
+    description: "If you have any questions about Unix, classes, hacking, or are just new to Computer Science, this is the perfect opportunity to get your questions answered.Come hang out with strangers (soon to be friends), and get your Linux/Vim/Powershell/other program set up so you can hit the ground running. We’ve got a vast array (pun intended) of workshops coming your way this semester, both for beginners and ninjas/divas alike.",
+    pic_url: "https://sphotos-b-lax.xx.fbcdn.net/hphotos-prn1/561925_10201250440574416_1488953319_n.jpg",
+    location: "Soda Hall"
+  };
+
+  if(event.dateObj.valueOf() > ts) {
+    events['new'].push(event);
+  } else {
+    events['old'].push(event);
+  }
 }
 
 refreshCache();
@@ -306,13 +332,15 @@ app.get('/hack/:hackathon', function(req, res) {
 });
 
 app.get('/hacks', function(req, res) {
-	db.collection('hacks').find().toArray(function(err, hacks) {
+	//Hacks page is now on habitat.hackersatberkeley.com/projects
+	/*db.collection('hacks').find().toArray(function(err, hacks) {
 		if (hacks.length == 0 || err) {
 		  res.redirect('/');
 		} else {
 		  res.render('hackdb', {page:'hacks', layout: true, hacks: hacks});
 		}
-	});
+	});*/
+	res.redirect('http://habitat.hackersatberkeley.com/projects')
 });
 
 app.listen(process.env.PORT || 8086);
